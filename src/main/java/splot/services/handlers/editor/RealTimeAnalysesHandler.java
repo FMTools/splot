@@ -1,7 +1,6 @@
 package splot.services.handlers.editor;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +29,8 @@ public class RealTimeAnalysesHandler extends FreeMarkerHandler {
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
         try {           	
         	String featureModelJSONString = request.getParameter("featureModelJSONString");

@@ -1,4 +1,5 @@
 package splot.services.extensions.fundp.handlers;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,10 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import freemarker.template.Configuration;
@@ -61,8 +60,12 @@ public class ViewSpecificationEditorHandler extends FreeMarkerHandler {
 	 * @param response	a  HttpServletResponse object containing the response should be sent to the client 	
 	 * @param templateModel	a template including the information's structure should be sent to the client
 	 */
-	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
-        try {     
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {        
+		
+		//TODO: Define types for the templateModel Map
+		
+		try {     
 
         	String viewFileSource="new_file";
         	
@@ -259,8 +262,11 @@ public class ViewSpecificationEditorHandler extends FreeMarkerHandler {
 	 * @param level the level of the feature in the feature diagram
 	 * @return a Map object containing the feature's data 
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private Map createFeatureModelTemplateModel(FeatureModel featureModel, FeatureTreeNode featureNode, Map templateModel, List features, int level) {
 
+		//TODO: Define types for the FeatureData Map
+		
 		Map featureData = new HashMap();
 		featureData.put("feature_id", featureNode.getID());
 		featureData.put("feature_level", level);

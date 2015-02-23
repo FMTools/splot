@@ -3,8 +3,6 @@ package splot.services.handlers.analyses.charts;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 
-import splar.core.fm.FeatureModelStatistics;
-
 public class FMPieChartBySource {
 
 	private int countModels;

@@ -28,6 +28,8 @@ public class RenderFeatureModelHandler extends AbstractFeatureModelHandler {
 		super(handlerName, servlet, configuration,template);
 	}
 	
+	//TODO: Define types for the modelMap and root maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map buildModel(Map modelMap, Map root, HttpServletRequest request) throws ServletException, IOException {
 		
         FeatureModel model = (FeatureModel)modelMap.get("model");

@@ -21,6 +21,8 @@ public class ShowFeatureModelDetailsHandler extends FreeMarkerHandler {
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {
@@ -60,6 +62,8 @@ public class ShowFeatureModelDetailsHandler extends FreeMarkerHandler {
 		}
 	}
 
+	//TODO: Check if remove unused method
+	@SuppressWarnings("unused")
 	private String[] extractURLs(String urls) {
 //		return urls.split(";");
 		return urls.split("\r\n");

@@ -35,6 +35,8 @@ public abstract class InteractiveConfigurationDetectConflictsHandler extends Fre
 		response.setContentType("text/html; charset=" + template.getEncoding());
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {

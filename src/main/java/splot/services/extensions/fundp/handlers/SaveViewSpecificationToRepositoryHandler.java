@@ -2,7 +2,6 @@ package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -21,21 +20,18 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
+
+
 import java.util.LinkedHashMap;
 
-import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureModelException;
-import splar.core.fm.XMLFeatureModel;
 import splot.core.Handler;
-import splot.services.extensions.fundp.utilities.Methods;
 
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 
-
 import org.w3c.dom.*;
-
 import org.xml.sax.SAXException;
 
 
@@ -71,27 +67,29 @@ public class SaveViewSpecificationToRepositoryHandler extends Handler {
         			response.getWriter().write(requestValidation);
         		}else{
 				        	String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
-				        	String featureModelFileName=(String)request.getParameter("feature_model_file_name");
 				        	String viewFileName=(String)request.getParameter("view_file_name_in_repository");
 				        	String viewJSONString = request.getParameter("view_in_json");
 				        	String relatedFeatureModel=request.getParameter("related_feature_model");
-				        	boolean newFile=false;
 				        	File file = new File(viewDir+"/"+viewFileName);
 				        	String filePath=viewDir+"/"+viewFileName;
-				        //	String JSONValidationResult=JSONStringValidation(viewJSONString);
-				        	
-					   		
-				        	
+
+				        	//TODO: Remove unused variables
+				        	// String featureModelFileName=(String)request.getParameter("feature_model_file_name");
+				        	// boolean newFile=false;
+				        	//	String JSONValidationResult=JSONStringValidation(viewJSONString);
 				        	
 				        	
 				        	if (file.exists()){
-				        		newFile=false;
+				        		// newFile=false;
 				        		
 				        		try{
 						        		String[] viewInDetail= new String[8];
 						        		viewInDetail=getViewJSONDInArray(viewJSONString);
 						        		String viewOldName=viewInDetail[0];
-						        		String viewNewName=viewInDetail[1];
+						        		
+						        		//TODO: Remove unused variable
+						        		//String viewNewName=viewInDetail[1];
+						        		
 						        		if (viewOldName.compareToIgnoreCase("New View")==0){
 						        			if (checkViewExistingInSpecification(filePath, viewInDetail[1])){
 						        				response.getWriter().write("The view already exists in the specification.");
@@ -140,7 +138,7 @@ public class SaveViewSpecificationToRepositoryHandler extends Handler {
 				        			response.getWriter().write(e.getMessage());
 								}
 				        	}else{
-				        		newFile=true;
+				        		// newFile=true;
 				        		try{
 				        				String result= createViewSpecificationXMLFile(viewJSONString, filePath, relatedFeatureModel);
 				        				if (result.compareToIgnoreCase("true")==0){
@@ -158,18 +156,21 @@ public class SaveViewSpecificationToRepositoryHandler extends Handler {
 			}
 	}
 	
+	//TODO: Define types for the JSON object
+	@SuppressWarnings("rawtypes")
 	private static String[] getViewJSONDInArray (String viewJSONString) throws JSONException, ParseException, FeatureModelException{
 		String[] retStr=new String[8];
 		JSONParser parser = new JSONParser();
+		
 		ContainerFactory  factory = new ContainerFactory() {
 			
-			// @Override
+			//TODO: Define types for the JSON array Map
 			public Map createObjectContainer() {
 				// TODO Auto-generated method stub
 				return new LinkedHashMap();
 			}
 			
-			// @Override
+			//TODO: Define types for the LinkedList
 			public List creatArrayContainer() {
 				// TODO Auto-generated method stub
 				return new LinkedList();

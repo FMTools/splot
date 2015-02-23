@@ -3,7 +3,6 @@ package splot.services.extensions.fundp.handlers;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -16,15 +15,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.json.simple.JSONValue;
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import splot.services.extensions.fundp.utilities.Methods;
-
-import com.google.gson.JsonObject;
-
 import splot.core.Handler;
 
 /** LoadViewAllocationInformationHandler is used to load the views associated to a special feature model and workflow.      
@@ -45,6 +40,7 @@ public class LoadViewAllocationInformationHandler extends Handler {
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	/** run called by the servlet container to start its activity.  
 	 * 
@@ -82,6 +78,7 @@ public class LoadViewAllocationInformationHandler extends Handler {
 
 		
 		try {
+				//TODO: Define types for the JSON-object Map
 				List<Map> jsonObj=new LinkedList<Map>();
 				
 				if ((featureModel.compareToIgnoreCase("Select")!=0) && (featureModel!="") && (! featureModel.isEmpty()) ){

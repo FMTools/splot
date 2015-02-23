@@ -7,14 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -32,9 +30,8 @@ import splot.services.extensions.fundp.utilities.FeatureInViewCheckingResult;
 import splot.services.extensions.fundp.utilities.Methods;
 
 
-
-
 public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHandler {
+
 	protected FCWInteractiveConfigurationElementsProducer confElementProducer = null;
 	   static Timer timer;
 
@@ -47,6 +44,8 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
 		response.setContentType("text/xml; charset=" + template.getEncoding());
 	}
 	
+	//TODO: Define types for templateModel map
+	@SuppressWarnings("rawtypes")
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		
 		
@@ -103,7 +102,9 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
      	ServletConfig config = getServlet().getServletConfig();
  	    ServletContext sc = config.getServletContext();
  	    ConfigurationEngine confEngine=null;
- 	    String lock="";
+ 	    
+ 	    //TODO: Remove unused variable
+ 	    // String lock="";
  	    
          if ((ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine")==null){
 
@@ -124,7 +125,8 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
 		}
 	}
 	
-	
+	//TODO: Define types for templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected void performChanges(Map templateModel, ConfigurationEngine confEngine, HttpServletRequest request, HttpServletResponse response,  String viewType, String viewName, String featureModelFileName, String userKey, String op, String viewDir, String modelDir) throws HandlerExecutionException{
 		
 		

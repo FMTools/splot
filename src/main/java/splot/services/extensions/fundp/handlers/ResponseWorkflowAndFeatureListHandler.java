@@ -2,8 +2,6 @@ package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.json.JSONArray;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
-import com.google.gson.JsonArray;
 
 import splot.core.Handler;
 
@@ -53,7 +48,8 @@ public class ResponseWorkflowAndFeatureListHandler extends Handler{
 			String resuStringInString="";
 			String resuStringInString2="";
 
-			int arrayIndex=-1;
+			//TODO: Remove unused variable 
+			// int arrayIndex=-1;
 			String selectedType=request.getParameter("selectedType");
 			String selectedValue=request.getParameter("selectedValue");
 			if (selectedType.compareToIgnoreCase("feature")==0){

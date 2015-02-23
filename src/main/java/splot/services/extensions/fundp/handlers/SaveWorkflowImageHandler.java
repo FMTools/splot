@@ -26,17 +26,20 @@ public class SaveWorkflowImageHandler extends FreeMarkerHandler {
 	public SaveWorkflowImageHandler(String handlerName, HttpServlet servlet,
 			Configuration configuration, Template template) {
 		super(handlerName, servlet, configuration, template);
-		// TODO Auto-generated constructor stub
 	}
 
+	//TODO: Define types for parameters, messages and templateModel Maps
+	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation"})
 	@Override
 	public void buildModel(HttpServletRequest request,
 			HttpServletResponse response, Map templateModel)
 			throws HandlerExecutionException {
-		// TODO Auto-generated method stub
+
 		String responseMessage=""; 
-		boolean validData=false;
-		boolean fileCreationStatus=false;
+		
+		//TODO: Remove unused variables
+		// boolean validData=false;
+		// boolean fileCreationStatus=false;
 
 		
 		try {
@@ -54,6 +57,7 @@ public class SaveWorkflowImageHandler extends FreeMarkerHandler {
 
 			}else {
 				
+				//TODO: Check which commons FileUpload method is not deprecated
 				boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 				
 				 		if (!isMultipart)
@@ -85,11 +89,11 @@ public class SaveWorkflowImageHandler extends FreeMarkerHandler {
 					   						{
 					   				   			try
 					   				   			{
-					   					   			String itemName = item.getName();
+					   				   				//TODO: Remove unused variable
+					   					   			//String itemName = item.getName();
 					   					   			File savedFile = new File(imageDir+"/"+fileName);
 					   					   			item.write(savedFile);
 					   					   			responseMessage="<b>"+fileName+"</b>"+"    successfully saved in the repository";
-					   		
 					   					   			
 					   				   			}
 					   				   			catch (Exception e)

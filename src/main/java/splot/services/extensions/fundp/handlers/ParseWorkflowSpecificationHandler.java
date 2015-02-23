@@ -2,15 +2,12 @@ package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +24,6 @@ import org.w3c.dom.NodeList;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
 
@@ -60,7 +56,11 @@ public class ParseWorkflowSpecificationHandler  extends FreeMarkerHandler{
 	 * @param response	a  HttpServletResponse object containing the response should be sent to the client 	
 	 * @param templateModel	a template including the information's structure should be sent to the client
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request,HttpServletResponse response, Map templateModel) throws HandlerExecutionException{
+		
+		//TODO: Define types for the templateModel and fileInformation Maps
+		
 		List<Map> filelist =new LinkedList<Map>();
 		String parsedDir=getServlet().getServletContext().getRealPath("/")+ "extensions/parsed_workflows"; //getServlet().getInitParameter("parsedWorkflowPath");  // directory of parsed workflow's xml files: SPLOT/WebContent/extensions/parsed_workflows
 		String importedDir=getServlet().getServletContext().getRealPath("/")+ "extensions/imported_workflows"; //getServlet().getInitParameter("importedWorkflowPath");  // directory of workflow's xml files: SPLOT/WebContent/extensions/imported_workflows

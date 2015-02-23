@@ -1,21 +1,17 @@
 package splot.services.extensions.fundp.handlers.conf;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-
 import splot.core.FreeMarkerHandler;
-import splot.core.Handler;
 import splot.core.HandlerExecutionException;
 import splot.services.extensions.fundp.utilities.Methods;
 
@@ -24,14 +20,15 @@ public class ViewsConfigurattionStatusHandler extends FreeMarkerHandler {
 	public ViewsConfigurattionStatusHandler(String handlerName,
 			HttpServlet servlet, Configuration configuration, Template template) {
 		super(handlerName, servlet, configuration, template);
-		// TODO Auto-generated constructor stub
 	}
 
+	//TODO: Define types for the templateModel and the message map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void buildModel(HttpServletRequest request,
 			HttpServletResponse response, Map templateModel)
 			throws HandlerExecutionException {
-		// TODO Auto-generated method stub
+
 		String workflowName=request.getParameter("workflowName");
 		String taskName=request.getParameter("taskName");
 		String featureModelName=request.getParameter("featureModelName");
@@ -77,15 +74,10 @@ public class ViewsConfigurattionStatusHandler extends FreeMarkerHandler {
 						templateModel.put("messages", messages);
 					}
 				}
-				
-			 
 
 			}	
 				
-			
 	}
-	
-
 	
 
 }

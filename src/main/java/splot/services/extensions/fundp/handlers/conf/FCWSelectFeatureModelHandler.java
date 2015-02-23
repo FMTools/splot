@@ -13,12 +13,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -33,9 +27,10 @@ public class FCWSelectFeatureModelHandler extends SelectFeatureModelHandler{
 	public FCWSelectFeatureModelHandler(String handlerName,
 			HttpServlet servlet, Configuration configuration, Template template) {
 		super(handlerName, servlet, configuration, template);
-		// TODO Auto-generated constructor stub
 	}
 	
+	//TODO: Define types for the templatemodel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
         
 		try {
@@ -61,13 +56,6 @@ public class FCWSelectFeatureModelHandler extends SelectFeatureModelHandler{
 	        templateModel.put("sortBy", sortBy == null ? "features" : sortBy);
 	        templateModel.put("showModelDetails", showModelDetails != null ? Boolean.valueOf(showModelDetails) : true);
 	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
 		} 
         catch( HandlerExecutionException handlerExcObj ) {
         	throw handlerExcObj;
@@ -77,7 +65,8 @@ public class FCWSelectFeatureModelHandler extends SelectFeatureModelHandler{
 		}
 	}
 
-	
+	//TODO: Define types for the Comparator object
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private List<Map<String,String>> listFeatureModels(String modelsPath, String sortBy) throws HandlerExecutionException {
 		
 		List<Map<String,String>> modelList = new LinkedList<Map<String,String>>();

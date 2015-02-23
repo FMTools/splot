@@ -1,28 +1,23 @@
 package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
 
@@ -46,6 +41,7 @@ public class ViewAllocationEditorHandler  extends FreeMarkerHandler {
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	/**
 	 * buildModel implements the handler's logic. It basically fills the templateModel map with the necessary information
@@ -57,6 +53,8 @@ public class ViewAllocationEditorHandler  extends FreeMarkerHandler {
 	 * @param templateModel	a template including the information's structure should be sent to the client
 	 */
 	public void buildModel(HttpServletRequest request,HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
+	
+		//TODO: Define types for the FeatureModel Map
 		List<Map> featureModelList =new LinkedList<Map>();
 		try {
 			

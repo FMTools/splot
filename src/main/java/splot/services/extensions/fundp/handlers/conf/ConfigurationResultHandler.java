@@ -1,37 +1,24 @@
 package splot.services.extensions.fundp.handlers.conf;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONValue;
-
-import splar.core.fm.configuration.ConfigurationEngine;
 import splot.core.Handler;
-import splot.core.HandlerExecutionException;
 import splot.services.extensions.fundp.utilities.Methods;
 
 public class ConfigurationResultHandler extends Handler{
 
 	public ConfigurationResultHandler(String handlerName, HttpServlet servlet) {
 		super(handlerName, servlet);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-
 		
 		try {
 			

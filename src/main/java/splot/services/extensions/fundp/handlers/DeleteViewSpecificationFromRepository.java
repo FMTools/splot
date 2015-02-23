@@ -2,10 +2,6 @@ package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,11 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.json.JSONException;
-import org.json.simple.parser.ContainerFactory;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-
 
 import splar.core.fm.FeatureModelException;
 import splot.core.Handler;
@@ -29,10 +21,8 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 
-
 import org.w3c.dom.*;
 
-import org.xml.sax.SAXException;
 
 /** DeleteViewSpecificationFromRepository is used to delete a view from repository.  
 * 
@@ -59,12 +49,14 @@ public class DeleteViewSpecificationFromRepository extends Handler {
 	public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
         try{
         	
-        		String modelDir=getServlet().getServletContext().getRealPath("/")+ "models";
-        		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath"); 
+        		//TODO: Remove unused variables
+        		// String modelDir=getServlet().getServletContext().getRealPath("/")+ "models";
+        		// String featureModelFileName=(String)request.getParameter("feature_model_file_name");
+	        	// String relatedFeatureModel=request.getParameter("related_feature_model");
+
+	        	String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath"); 
 	        	
-        		String featureModelFileName=(String)request.getParameter("feature_model_file_name");
 	        	String viewFileName=(String)request.getParameter("view_file_name_in_repository");
-	        	String relatedFeatureModel=request.getParameter("related_feature_model");
 	        	String viewName = request.getParameter("view_name");
 
 	        	File file = new File(viewDir+"/"+viewFileName);
@@ -74,13 +66,10 @@ public class DeleteViewSpecificationFromRepository extends Handler {
 	        	}else{
 	        		String result=deleteViewFromFile(viewName,filePath);
 	        		response.getWriter().write(result);
-
 	        		
 	        	}
-	        	
-
         		
-	    }catch (Exception e) {
+	    } catch (Exception e) {
 	        	e.printStackTrace();
 			}
 	}

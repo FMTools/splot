@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.StringWriter;
-import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -22,20 +21,17 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.XPathExpressionException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import splar.core.fm.FeatureModel;
-import splar.core.fm.FeatureModelStatistics;
-import splar.core.fm.XMLFeatureModel;
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
 import splot.services.extensions.fundp.utilities.Methods;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+
 /** SelectWorkflowHandler lists all the workflow specifications parsed in SPLOT allows the user to see it in detail.   
 * 
 * @author  PReCISE (research center of the University of FUNDP)
@@ -63,8 +59,11 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
 	 * @param response	a  HttpServletResponse object containing the response should be sent to the client 	
 	 * @param templateModel	a template including the information's structure should be sent to the client
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		        
+		//TODO: Define types for the templateModel map
+		
 		try {
 			
 			
@@ -109,7 +108,10 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
 	 * @param sortBy	a string including the name of a field that the list should be sorted based on that	
 	 * @return a list of workflow specifications 
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private List<Map<String,String>> listWorkflowSpecifications(String modelsPath,String importedPath, String sortBy ) throws HandlerExecutionException {
+		
+		//TODO: Define types for the modelList map and the modelComparator comparator
 		
 		List<Map<String,String>> modelList = new LinkedList<Map<String,String>>();
 		
@@ -191,6 +193,8 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
         return modelList;
 	}
 	
+	//TODO: Check if remove this unused method
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private List<Map<String,String>> listImportedWorkflowSpecifications(String modelsPath,String importedPath, String sortBy, String actionType) throws HandlerExecutionException {
 		
 		List<Map<String,String>> modelList = new LinkedList<Map<String,String>>();
@@ -204,9 +208,10 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
 			String importedDir=importedPath;
 			File  dir=new File(importedDir);
 			String xmlData="";
-			Boolean hasData=false;
 			
-			
+			//TODO: Remove unused variables
+			// Boolean hasData=false;
+						
 			String[]  childeren=dir.list();
        		if (childeren!=null){
        			for (int i=0;i<childeren.length;i++){
@@ -242,7 +247,7 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
        							modelData.put("version", Methods.getCharacterDataFromElement(versionElement));
        							modelData.put("file", fileName);
        							modelList.add(modelData);
-       							hasData=true;
+       							// hasData=true;
        							
        						} catch (Exception e) {
        							
@@ -251,8 +256,6 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
        						
        					}
        					
-       					
-
        				}
 
        			}
@@ -260,6 +263,7 @@ public class SelectWorkflowHandler extends FreeMarkerHandler {
        		}
 	
        		
+       		//TODO: Define types for the modelComparator
 								
 				Comparator modelComparator = null;
 				if ( sortBy == null || sortBy.equals("name")) {

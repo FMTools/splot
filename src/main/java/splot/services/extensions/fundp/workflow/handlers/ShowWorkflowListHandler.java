@@ -1,7 +1,6 @@
 package splot.services.extensions.fundp.workflow.handlers;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,6 +42,7 @@ public class ShowWorkflowListHandler extends FreeMarkerHandler{
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	/**
 	 * buildModel implements the handler's logic. It basically fills the templateModel map with the necessary information
@@ -55,7 +55,8 @@ public class ShowWorkflowListHandler extends FreeMarkerHandler{
 	 */
 	public void buildModel(HttpServletRequest request,HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		
-
+		//TODO: Define types for the templateModel map and decompositionList list
+		
 		try {
      		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views";//getServlet().getInitParameter("viewFilesPath");
     		String modelFileName = (String)request.getParameter("selectedModels");
@@ -88,9 +89,7 @@ public class ShowWorkflowListHandler extends FreeMarkerHandler{
 				    NodeList decomposesToElement=taskElement.getElementsByTagName("decomposesTo");
 				    Element decomposesToElementName = (Element) decomposesToElement.item(0);
 				    String decomposesTo="";
-				    if (decomposesToElement==null){
-				    	 decomposesTo="";
-				    }else{
+				    if (decomposesToElement != null){
 				    	 decomposesTo=decomposesToElementName.getAttribute("id");
 				    }
 				    Map taskInfo = new HashMap();

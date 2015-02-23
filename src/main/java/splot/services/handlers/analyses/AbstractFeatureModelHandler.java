@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import splar.core.fm.FeatureModel;
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
 import freemarker.template.Configuration;
@@ -22,14 +21,20 @@ public abstract class AbstractFeatureModelHandler extends FreeMarkerHandler {
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings("rawtypes")
 	public abstract Map buildModel(Map modelMap, Map templateModel, HttpServletRequest request) throws ServletException, IOException;
 
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })	
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		
 		HttpSession session = request.getSession(true);
 		List<Map> loadedModels = (List<Map>)session.getAttribute("loadedModels");
 		
-		FeatureModel model = null;
+		//TODO: Remove unused variables
+		// FeatureModel model = null;
+		
 		try {
 			int modelIndex = Integer.valueOf(request.getParameter("modelIndex"));
 			if ( modelIndex >=0 && modelIndex < loadedModels.size() ) {

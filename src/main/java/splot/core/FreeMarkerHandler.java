@@ -14,6 +14,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+//TODO: Define the types for the templateModel Map
 public abstract class FreeMarkerHandler extends Handler {
 
 	protected Template template;
@@ -25,6 +26,7 @@ public abstract class FreeMarkerHandler extends Handler {
 		this.configuration = configuration;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public abstract void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException;
 
 	public String getUserId(HttpServletRequest request) {
@@ -35,6 +37,7 @@ public abstract class FreeMarkerHandler extends Handler {
     	return user;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void error(Map templateModel, String errorMessage, String user) {		
 		// log error message on file
 		ErrorManager.getManager().logError(getServlet().getInitParameter("logFilePath"), this, errorMessage, user);
@@ -43,6 +46,7 @@ public abstract class FreeMarkerHandler extends Handler {
 		templateModel.put("errorMessage", errorMessage);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void noError(Map templateModel) {
 		templateModel.put("hasError", false);
 		templateModel.put("errorMessage", "");
@@ -60,6 +64,7 @@ public abstract class FreeMarkerHandler extends Handler {
 		response.setContentType("text/html; charset=" + template.getEncoding());
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		

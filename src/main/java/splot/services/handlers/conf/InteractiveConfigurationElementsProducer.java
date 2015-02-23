@@ -25,6 +25,8 @@ public class InteractiveConfigurationElementsProducer {
 		this.cfg = cfg;
 	}
 	
+	//TODO: Define types for the featureData map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String produceFeatureElement(FeatureTreeNode feature, Map featureData, String templateFileName) {
 		String output= "";		
 		try {
@@ -57,6 +59,8 @@ public class InteractiveConfigurationElementsProducer {
 		return output;
 	}
 	
+	//TODO: Define types for basicDataMap map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map produceBasicFeatureData(FeatureTreeNode feature) {
 		Map basicDataMap = new HashMap();
 		basicDataMap.put("feature_id", feature.getID());
@@ -81,8 +85,13 @@ public class InteractiveConfigurationElementsProducer {
 		return basicDataMap;
 	}
 	
+	//TODO: Define types for the stepData map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void produceStepTemplateElement(ConfigurationStep step, Map stepData) {
-		String output= "";		
+		
+		//TODO: Remove unused variables
+		// String output= "";
+		
 		try {
 			stepData.put("step_id", step.getId());
 			List stepManualDecisionsList = new LinkedList();
@@ -112,6 +121,8 @@ public class InteractiveConfigurationElementsProducer {
 		}
 	}
 
+	// TODO: Define types for the stepData map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String produceStepElement(ConfigurationStep step, Map stepData) {
 		String output= "";		
 		try {

@@ -2,7 +2,6 @@ package splot.services.extensions.fundp.handlers.conf;
 
 import java.io.IOException;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -11,7 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import splar.core.fm.FeatureTreeNode;
 import splar.core.fm.configuration.ConfigurationEngine;
@@ -23,12 +21,12 @@ import splot.services.extensions.fundp.utilities.FeatureDecisionInfo;
 import splot.services.extensions.fundp.utilities.Methods;
 
 
-
 public class FCWInstanceManagerHandler extends Handler {
+	
 	Timer timer;
+	
 	public FCWInstanceManagerHandler(String handlerName, HttpServlet servlet) {
 		super(handlerName, servlet);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

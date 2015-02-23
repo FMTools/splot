@@ -27,16 +27,18 @@ public class InteractiveConfigurationExportConfigurationHandler extends FreeMark
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {	        		        	
         	HttpSession session = request.getSession(true);	        	
 
         	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
-        	FeatureModel model = confEngine.getModel();
     		if (confEngine == null) {
     			throw new HandlerExecutionException("Configuration engine must be created first");
     		}
+        	FeatureModel model = confEngine.getModel();
         	
         	templateModel.put("modelName", model.getName());
         	

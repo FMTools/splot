@@ -33,6 +33,8 @@ public abstract class InteractiveConfigurationMainHandler extends FreeMarkerHand
 	protected abstract String getResourcePath();	
 	protected abstract String getFeatureTemplateFile();
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {	        	

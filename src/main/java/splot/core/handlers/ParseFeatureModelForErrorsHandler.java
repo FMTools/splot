@@ -14,12 +14,14 @@ import splot.core.HandlerExecutionException;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+//TODO: Define the types for the templateModel Map
 public class ParseFeatureModelForErrorsHandler extends FreeMarkerHandler {
 
 	public ParseFeatureModelForErrorsHandler(String handlerName, HttpServlet servlet, Configuration configuration,Template template) {
 		super(handlerName, servlet, configuration,template);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {

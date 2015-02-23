@@ -19,14 +19,15 @@ public class ShowMessagesHandler extends FreeMarkerHandler {
 	public ShowMessagesHandler(String handlerName, HttpServlet servlet,
 			Configuration configuration, Template template) {
 		super(handlerName, servlet, configuration, template);
-		// TODO Auto-generated constructor stub
+
 	}
 
+	//TODO: Define types for templateModel and Messages Maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void buildModel(HttpServletRequest request,
 			HttpServletResponse response, Map templateModel)
 			throws HandlerExecutionException {
-		// TODO Auto-generated method stub
 		
 		List<Map> messages=new LinkedList<Map>();
 		String[] responseMessage=request.getParameter("message").split("\\*");

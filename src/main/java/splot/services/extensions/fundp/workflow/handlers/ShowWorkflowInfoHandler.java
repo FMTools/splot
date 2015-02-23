@@ -1,9 +1,6 @@
 package splot.services.extensions.fundp.workflow.handlers;
 
-
-
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,12 +27,13 @@ public class ShowWorkflowInfoHandler extends FreeMarkerHandler{
 	public ShowWorkflowInfoHandler(String handlerName, HttpServlet servlet,
 			Configuration configuration, Template template) {
 		super(handlerName, servlet, configuration, template);
-		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void buildModel(HttpServletRequest request,HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		
+		//TODO: Define types for the templateModel map
 
 		try {
 			String viewDir=null;

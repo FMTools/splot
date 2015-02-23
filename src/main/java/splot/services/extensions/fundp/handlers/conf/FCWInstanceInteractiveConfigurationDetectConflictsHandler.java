@@ -1,20 +1,15 @@
 package splot.services.extensions.fundp.handlers.conf;
 
-
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import splar.core.fm.FeatureGroup;
 import splar.core.fm.FeatureModel;
@@ -46,7 +41,9 @@ public abstract  class FCWInstanceInteractiveConfigurationDetectConflictsHandler
 	public void setResponseParameters(HttpServletResponse response) {
 		response.setContentType("text/html; charset=" + template.getEncoding());
 	}
-	
+		
+	//TODO: Define types for templateModel Map
+	@SuppressWarnings("rawtypes")
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {
@@ -240,10 +237,6 @@ public abstract  class FCWInstanceInteractiveConfigurationDetectConflictsHandler
 //        	 	}
 //	        }
 
-     		
-    		
-    		
-
         	
 		} catch (Exception e) {
 
@@ -253,7 +246,8 @@ public abstract  class FCWInstanceInteractiveConfigurationDetectConflictsHandler
 	}
 	
 	
-	
+	//TODO: Define type for templateModel Map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void performConflictDetection(ConfigurationEngine confEngine, HttpServletRequest request, HttpServletResponse response, Map templateModel, String toggleFeature, String viewType, String viewName, String userKey, String viewDir, String modelDir, String featureModelFileName ) throws FeatureModelException, ConfigurationEngineException{
    		
 		FeatureTreeNode toggleFeatureObj = confEngine.getModel().getNodeByID(toggleFeature);
@@ -332,6 +326,7 @@ public abstract  class FCWInstanceInteractiveConfigurationDetectConflictsHandler
 		}
 		return "error";
 	}
+	
 	public static void getFeatureModelChilds(FeatureTreeNode featureTreeNode,LinkedList<FeatureTreeNode> featureList , String viewDir,String modelDir,String featureModelFileName, String featureModelName, String viewName,
 			   String visualizationType){
 		

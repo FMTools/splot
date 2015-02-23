@@ -64,6 +64,8 @@ public class DisplayRepositoryStatisticsHandler extends FreeMarkerHandler {
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for templateModel and tempHash maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {
@@ -137,6 +139,8 @@ public class DisplayRepositoryStatisticsHandler extends FreeMarkerHandler {
 		}
 	}
 
+	//TODO: Check if remove this unused method
+	@SuppressWarnings("unused")
 	private String[] extractURLs(String urls) {
 //		return urls.split(";");
 		return urls.split("\r\n");

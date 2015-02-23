@@ -1,11 +1,7 @@
 package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -14,23 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 import org.json.simple.JSONValue;
+
 import splot.services.extensions.fundp.utilities.Methods;
 
 
@@ -58,14 +46,19 @@ public class ResponseViewDetailsHandler extends Handler  {
 	 * @param request	a  HttpServletRequest object containing the request received by handler from the client
 	 * @param response	a  HttpServletResponse object containing the response should be sent to the client 	
 	 */	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
+		
 			String viewName=request.getParameter("viewName").trim();
 			String viewFileName=(String) request.getParameter("viewFileName").trim();
 			String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
 			File   importfile = new File(viewDir+"/"+viewFileName);
-			String viewDetails="";
+			
+			//TODO: Remove unused variables
+			// String viewDetails="";
 		
+			//TODO: Define type for JSON-Object Map
 			 Map jsonObj=new LinkedHashMap();
 
 			

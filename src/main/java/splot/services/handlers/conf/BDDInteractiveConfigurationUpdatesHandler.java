@@ -36,6 +36,8 @@ public class BDDInteractiveConfigurationUpdatesHandler extends FreeMarkerHandler
 		response.setContentType("text/xml; charset=" + template.getEncoding());
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {

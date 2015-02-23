@@ -1,13 +1,11 @@
 package splot.services.extensions.fundp.handlers.conf;
-import java.io.File;
+
+import java.io.File; 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -28,39 +26,31 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 import splar.core.fm.FeatureGroup;
 import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureTreeNode;
 import splar.core.fm.GroupedFeature;
 import splar.core.fm.SolitaireFeature;
 import splar.core.fm.configuration.ConfigurationEngine;
-import splot.core.FreeMarkerHandler;
 import splot.core.Handler;
-import splot.core.HandlerExecutionException;
 import splot.services.extensions.fundp.utilities.Methods;
 
 public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends Handler{
+
 	public FCWInteractiveConfigurationExportConfigurationToFileHandler(String handlerName, HttpServlet servlet) {
 		super(handlerName, servlet);
 	}
 	
-	
+	//TODO: Define types for the JSON Object map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-				
-		
- 				String retValue="";
- 				Map jsonObj=new LinkedHashMap();
+		String retValue="";
+ 		Map jsonObj=new LinkedHashMap();
  				
 		  try {	
-			  
-			 
-			  
 			  
 				String configuredModelsPath=getServlet().getServletContext().getRealPath("/")+ "models/configured_models"; 
 		    	
@@ -70,21 +60,19 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 		    	String userID=(String)session.getAttribute("userID");
 
 		    	String viewName=(String)session.getAttribute("viewName");
-		    	String viewType=(String)session.getAttribute("viewType");
 		    	String task=(String)session.getAttribute("taskName");
 		    	String workflow=(String)session.getAttribute("workflowName");
 		    	String featureModelFileName=(String)session.getAttribute("selectedModels");
 		    	String featureModelName=(String)session.getAttribute("featureModelName");
-		    	String workflowExistence=(String)session.getAttribute("workflowExistence");
 		    	String uncoveredFeatures=(String)session.getAttribute("uncoveredFeatures");
 		    	String userKey=(String)session.getAttribute("userKey");
 
+		    	//TODO: Remove unused variables
+		    	//String viewType=(String)session.getAttribute("viewType");
+		    	//String workflowExistence=(String)session.getAttribute("workflowExistence");
 		    	
 		    	String action=(String)request.getParameter("actionType");
 		    
-		    	
-
-		    	
 		    	
 		    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 				java.util.Date date = new Date(session.getCreationTime());
@@ -107,7 +95,6 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 		        	String result=null;
 		        	if (configuredFileName.compareToIgnoreCase("false")==0){
 		        		
-		        		FeatureModel model = confEngine.getModel();
 			    		if (confEngine == null) {
 			    			jsonObj.put("result", "error");
 			        		jsonObj.put("value", "Configuration engine must be created first");
@@ -116,9 +103,8 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 			        		
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
-
-			    			
 			    		}
+		        		FeatureModel model = confEngine.getModel();
 			    		
 						 try{
 							
@@ -185,7 +171,6 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 
 		        		}else{
 		        			
-							FeatureModel model = confEngine.getModel();
 				    		if (confEngine == null) {
 				    			jsonObj.put("result", "error");
 				        		jsonObj.put("value", "Configuration engine must be created first");
@@ -195,6 +180,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 				    			response.getWriter().write(retValue);
 
 				    		}
+							FeatureModel model = confEngine.getModel();
 				        	
 				    		result=appendConfigurationFile(configuredFileName, configuredModelsPath, userName, userID,  task,"task", strDate,"configured");
 				        	

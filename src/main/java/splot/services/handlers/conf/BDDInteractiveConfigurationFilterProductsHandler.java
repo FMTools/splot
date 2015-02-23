@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import splar.core.fm.FeatureModel;
 import splar.plugins.configuration.bdd.javabdd.BDDConfigurationEngine;
 import splar.plugins.configuration.bdd.javabdd.catalog.Product;
 import splot.core.FreeMarkerHandler;
@@ -26,6 +25,8 @@ public class BDDInteractiveConfigurationFilterProductsHandler extends FreeMarker
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel and productData maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {	        		        	
@@ -42,10 +43,12 @@ public class BDDInteractiveConfigurationFilterProductsHandler extends FreeMarker
 //				}
 //        	} while (confEngine == null);
         	
-        	FeatureModel model = confEngine.getModel();
     		if (confEngine == null) {
     			throw new HandlerExecutionException("Configuration engine must be created first");
     		}
+    		
+    		//TODO: remove unused variables 
+        	// FeatureModel model = confEngine.getModel();
 
         	List templateProducts = new LinkedList();
 			List<Product> products = confEngine.getCatalog().filterProductsBasedOnFeatureModelSelection();

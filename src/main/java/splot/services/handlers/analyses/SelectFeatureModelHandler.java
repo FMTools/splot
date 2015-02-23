@@ -28,6 +28,8 @@ public class SelectFeatureModelHandler extends FreeMarkerHandler {
 		super(handlerName, servlet, configuration,template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		        
 		try {
@@ -61,6 +63,7 @@ public class SelectFeatureModelHandler extends FreeMarkerHandler {
 	}
 
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private List<Map<String,String>> listFeatureModels(String modelsPath, String sortBy) throws HandlerExecutionException {
 		
 		List<Map<String,String>> modelList = new LinkedList<Map<String,String>>();
@@ -113,7 +116,8 @@ public class SelectFeatureModelHandler extends FreeMarkerHandler {
 					}
 
 				}
-						
+
+				//TODO: Define type for modelComparator
 				Comparator modelComparator = null;
 				if ( sortBy == null || sortBy.equals("features")) {
 					modelComparator = new Comparator() {

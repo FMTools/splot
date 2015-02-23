@@ -21,6 +21,8 @@ import splar.core.fm.SolitaireFeature;
 
 public class JSONFeatureModel extends FeatureModel {
 
+	private static final long serialVersionUID = 1L;
+	
 	private String featureModelJSONString;
 	Map<String,FeatureTreeNode> featuresMap;
 	
@@ -31,6 +33,7 @@ public class JSONFeatureModel extends FeatureModel {
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected FeatureTreeNode createNodes() throws FeatureModelException {
 		
@@ -79,6 +82,7 @@ public class JSONFeatureModel extends FeatureModel {
 			/*********************************************************
 			 * Cross-tree Constraints
 			 *********************************************************/
+			//TODO: Define type for the iterator
 			for( Iterator it = featureModelJSON.getJSONObject("crosstree_constraints").keys() ; it.hasNext() ; ) {
 				String constraintId = (String)it.next();
 				JSONArray literals = featureModelJSON.getJSONObject("crosstree_constraints").getJSONArray(constraintId);

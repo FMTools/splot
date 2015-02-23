@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,9 +28,8 @@ import splot.services.extensions.fundp.utilities.FeatureInViewCheckingResult;
 import splot.services.extensions.fundp.utilities.Methods;
 
 
-
-
 public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHandler {
+
 	protected FCWInteractiveConfigurationElementsProducer confElementProducer = null;
 
 	public FCWSATInteractiveConfigurationUpdatesHandler(String handlerName, HttpServlet servlet, Configuration configuration, Template template) {
@@ -44,10 +41,11 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 		response.setContentType("text/xml; charset=" + template.getEncoding());
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {
-			
 			
            		 String viewType=(String)request.getParameter("viewType");
         		 String viewName=(String)request.getParameter("viewName");
@@ -57,9 +55,6 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
         			 viewName="none"; 
         		 }
         			 
-        		
-
-        	
         	
      		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
      		

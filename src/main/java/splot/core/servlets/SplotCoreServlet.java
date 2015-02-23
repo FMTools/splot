@@ -3,7 +3,6 @@ package splot.core.servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.http.HttpServlet;
 
 import splot.core.HandlerBasedServlet;
 import splot.core.handlers.ParseFeatureModelForErrorsHandler;

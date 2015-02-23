@@ -29,6 +29,8 @@ public class SaveFeatureModelToRepositoryHandler extends ExportFeatureModelHandl
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {		
         try {
     		templateModel.put("error_saving_model", false);
@@ -126,6 +128,8 @@ public class SaveFeatureModelToRepositoryHandler extends ExportFeatureModelHandl
 		return null;
 	}
 
+	//TODO: Define type for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void addAdditionalFeatureModelInfo( FeatureModel model, Map templateModel ) {
 		templateModel.put("model_name", model.getName());
 		String metaData[] = {
@@ -139,6 +143,8 @@ public class SaveFeatureModelToRepositoryHandler extends ExportFeatureModelHandl
 		}
 	}
 	
+	//TODO: Define type for templateModel map
+	@SuppressWarnings("rawtypes")
 	private void emailMe(final FeatureModel featureModel, final Map templateModel) {
 		new Thread() {
 			public void run() {

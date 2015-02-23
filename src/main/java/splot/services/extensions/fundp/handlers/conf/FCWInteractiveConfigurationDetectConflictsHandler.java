@@ -1,14 +1,10 @@
 package splot.services.extensions.fundp.handlers.conf;
 
-
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,11 +39,11 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
 		response.setContentType("text/html; charset=" + template.getEncoding());
 	}
 	
+	//TODO: Define types for templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {
-			
-			
 			
 			
         	HttpSession session = request.getSession(true);        	
@@ -62,8 +58,6 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
     		String modelDir=getServlet().getInitParameter("modelsPath");
 
     		
-
-    		
     		if (confEngine == null) {
     			throw new HandlerExecutionException("Configuration engine must be created first");
     		}
@@ -76,7 +70,7 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
     		templateModel.put("toggleFeatureName", toggleFeatureObj.getName());
     		templateModel.put("toggleFeatureCurValue", toggleFeatureObj.getValue());
     		templateModel.put("toggleFeatureNewValue", 1-toggleFeatureObj.getValue());
-    		
+  		
     		
 			FeatureModel featureModel = null;
 			featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
@@ -85,7 +79,6 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
 			getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
 
 			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-
 			
     		
     		List<FeatureTreeNode> conflictingFeatures = confEngine.detectConflicts(toggleFeature);
@@ -148,6 +141,7 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
 		}
 		return "error";
 	}
+
 	public static void getFeatureModelChilds(FeatureTreeNode featureTreeNode,LinkedList<FeatureTreeNode> featureList , String viewDir,String modelDir,String featureModelFileName, String featureModelName, String viewName,
 			   String visualizationType){
 		

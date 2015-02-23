@@ -1,7 +1,6 @@
 package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,17 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import splot.services.extensions.fundp.utilities.Methods;
-
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
@@ -54,6 +49,8 @@ public class ShowWorkflowListHandler extends FreeMarkerHandler {
 	 * @param response	a  HttpServletResponse object containing the response should be sent to the client 	
 	 * @param templateModel	a template including the information's structure should be sent to the client
 	 */
+	//TODO: Define types for the templateModel and workflow Maps 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 	
 		List<Map> workflowlist =new LinkedList<Map>();  // a list of workflow specifications

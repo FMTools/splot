@@ -1,7 +1,6 @@
 
 package splot.services.extensions.fundp.handlers.conf;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,17 +11,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -34,13 +22,15 @@ import splar.core.fm.SolitaireFeature;
 import splar.core.fm.configuration.ConfigurationEngine;
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
-import splot.services.extensions.fundp.utilities.Methods;
 
 public class FCWInstanceInteractiveConfigurationExportConfigurationHandler extends FreeMarkerHandler{
+	
 	public FCWInstanceInteractiveConfigurationExportConfigurationHandler(String handlerName, HttpServlet servlet, Configuration configuration, Template template) {
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel Map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		
@@ -57,13 +47,15 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationHandler exten
   	        	sc.setAttribute(userKey+"_lock", "free");
   	        	throw new HandlerExecutionException("Problem loading configuration engine");
   	        }else{
+  	        	
  	 			confEngine=(ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine");
- 	 			FeatureModel model = confEngine.getModel();
  	    		if (confEngine == null) {
  	    			throw new HandlerExecutionException("Configuration engine must be created first");
  	    		}
  	        	
- 	        	templateModel.put("modelName", model.getName());
+ 	    		FeatureModel model = confEngine.getModel();
+ 	        	
+ 	    		templateModel.put("modelName", model.getName());
  	        	
  	        	List features = new LinkedList();
  	        	for( FeatureTreeNode featureNode : model.getNodes() ) {
@@ -83,17 +75,13 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationHandler exten
  	        	templateModel.put("features", features);	        
   	        }
         	
-        	
-        	  	
-
-        
-        	
 	        	
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new HandlerExecutionException("Configuration engine must be created first", e);
 		}
 	}
+
 	protected String getFeatureParent(FeatureTreeNode feature) {
 		FeatureTreeNode parent = (FeatureTreeNode)feature.getParent();
 		if ( parent == null ) {

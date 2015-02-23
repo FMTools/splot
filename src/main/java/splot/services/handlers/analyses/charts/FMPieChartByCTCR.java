@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureModelStatistics;
 
 public class FMPieChartByCTCR {
@@ -28,7 +27,10 @@ public class FMPieChartByCTCR {
 	}
 	
 	public void process( FeatureModelStatistics stats ) {
-		FeatureModel model = stats.getFeatureModel();
+		
+		//TODO: Remove unused variables
+		//FeatureModel model = stats.getFeatureModel();
+		
 		int ctcr = (int)(stats.getECRepresentativeness()*100);
 		totalCTCR += ctcr;
 		countModels++;

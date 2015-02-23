@@ -11,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import splot.core.ErrorManager;
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+//TODO: Define the types for the templateModel Map
 public class ShowMessageLogHandler extends FreeMarkerHandler {
 
 	public ShowMessageLogHandler(String handlerName, HttpServlet servlet, Configuration configuration,Template template) {
 		super(handlerName, servlet, configuration,template);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		try {
 			templateModel.put("messages", ErrorManager.getManager().getMessages(getServlet().getInitParameter("logFilePath")));

@@ -1,7 +1,6 @@
 package splot.core;
 
-import java.util.Map;
-
+@SuppressWarnings("serial")
 public class HandlerExecutionException extends Exception {
 	
 	public HandlerExecutionException(String errorMessage) {

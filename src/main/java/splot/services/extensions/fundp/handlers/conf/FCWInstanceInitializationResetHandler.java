@@ -1,9 +1,5 @@
 package splot.services.extensions.fundp.handlers.conf;
 
-
-
-
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,12 +10,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-
-
-
-
 
 import splar.core.fm.FeatureGroup;
 import splar.core.fm.FeatureModel;
@@ -50,29 +40,34 @@ public abstract class FCWInstanceInitializationResetHandler extends FreeMarkerHa
 	protected abstract String getResourcePath();	
 	protected abstract String getFeatureTemplateFile();
 	
+	//TODO: Define types for the templateModel, stepData Map 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 				
 				
         try {	
-        	String requestQueryString=request.getQueryString();
+        	
+        	//TODO: Remove unused variables
+        	//String requestQueryString=request.getQueryString();
+        	//String  configurationFileName="";
 
         	String  newSession="false";
         	String  workflow="false";
         	String  task="false";
         	String  featureModelName="false";
-        	String featureModelFileName="false";
-        	String viewName="none";
-        	String viewType="none";
+        	String  featureModelFileName="false";
+        	String  viewName="none";
+        	String  viewType="none";
         	String  userKey="false";
         	String  userName="guest";
         	String  userID="guest";
-            String uncoveredFeatures="";
-        	String  configurationFileName="";
-
+            String  uncoveredFeatures="";
 
     		String modelDir=getServlet().getInitParameter("modelsPath");
     		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; 
-    		String configuredModelPath=modelDir+"/configured_models";
+
+    		//TODO: Remove unused variables
+    		//String configuredModelPath=modelDir+"/configured_models";
 
         	
        			/*********************************************************************
@@ -171,7 +166,8 @@ public abstract class FCWInstanceInitializationResetHandler extends FreeMarkerHa
            		/*********************************************************************
         		 * configuration file name
         		 *********************************************************************/
-	            configurationFileName=Methods.getConfiguredFileName(configuredModelPath, userKey);
+	            //TODO: Remove unused variables
+	            // configurationFileName=Methods.getConfiguredFileName(configuredModelPath, userKey);
     			
 	            
            		/*********************************************************************
@@ -195,8 +191,7 @@ public abstract class FCWInstanceInitializationResetHandler extends FreeMarkerHa
 	            	confEngine=(ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine");
 	            }
 	            
-	            
-	            
+	            	            
 	        	List<Map> stepsList = new LinkedList<Map>();
 	        	for( ConfigurationStep step : confEngine.getSteps() ) {
 	        		Map stepData = new HashMap();
@@ -208,10 +203,6 @@ public abstract class FCWInstanceInitializationResetHandler extends FreeMarkerHa
 	        	}
 	        	templateModel.put("steps", stepsList);
 	        	
-	        	
-
-
-				
 				
 				
           		/*********************************************************************

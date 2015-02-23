@@ -26,6 +26,8 @@ public class ExportFeatureModelHandler extends FreeMarkerHandler {
 	
 	private static final String tempModelsDir = "temp_models";
 		
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {		
         try {
     		templateModel.put("model_url", "");

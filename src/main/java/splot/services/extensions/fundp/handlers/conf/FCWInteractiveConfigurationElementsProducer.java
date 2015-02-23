@@ -1,6 +1,5 @@
 package splot.services.extensions.fundp.handlers.conf;
 
-import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,25 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.tree.TreeNode;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
-
-
-
 import splar.core.fm.FeatureGroup;
-import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureModelException;
 import splar.core.fm.FeatureTreeNode;
 import splar.core.fm.GroupedFeature;
 import splar.core.fm.SolitaireFeature;
-import splar.core.fm.XMLFeatureModel;
 import splar.core.fm.configuration.ConfigurationStep;
 import splot.services.extensions.fundp.utilities.FeatureCardinality;
 import splot.services.extensions.fundp.utilities.FeatureDecisionInfo;
@@ -45,7 +30,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 		this.cfg = cfg;
 	}
 	
-	
+	//TODO: Define types for featureData map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String produceFeatureElement(FeatureTreeNode feature, Map featureData, String templateFileName) {
 		String output= "";		
 		try {
@@ -78,6 +64,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 		return output;
 	}
 	
+	//TODO: Define type for basicDataMap map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map produceBasicFeatureData(FeatureTreeNode feature) {
 		Map basicDataMap = new HashMap();
 		basicDataMap.put("feature_id", feature.getID());
@@ -102,7 +90,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 		return basicDataMap;
 	}
 	
-	
+	//TODO: Define type for featureData map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String produceFeatureElement(FeatureTreeNode feature, Map featureData, String templateFileName, String viewDir, String modelDir,String featureModelFileName, String featureModelName, String viewName,
 			 FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String userKey) {
 		String output= "";	
@@ -144,9 +133,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 	}
 	
 
-	
- 
-	
+	//TODO: Define types for the basicDataMap map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map produceBasicFeatureData(FeatureTreeNode feature, String viewDir,String modelDir,String featureModelFileName, String featureModelName, String viewName,
 			  FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String userKey) throws FeatureModelException  {
 		Map basicDataMap = new HashMap();
@@ -154,11 +142,6 @@ public class FCWInteractiveConfigurationElementsProducer {
 		FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
 		if ((userKey!="") && (userKey.compareToIgnoreCase("false")!=0)){
 			decisionResult=Methods.getFeatureDecisionInfo(modelDir, userKey, feature.getID());
-			
-			
-		
-			
-		
 		}
 		
 //		System.out.println("1:"+decisionResult.found);
@@ -166,8 +149,6 @@ public class FCWInteractiveConfigurationElementsProducer {
 //		System.out.println("3:"+decisionResult.step);
 //		System.out.println("4:"+decisionResult.type);
 //		System.out.println("5:"+decisionResult.value);
-//	
-
 	
 		
 		if (visualizationType.compareToIgnoreCase("none")==0){
@@ -185,16 +166,12 @@ public class FCWInteractiveConfigurationElementsProducer {
 				basicDataMap.put("feature_decisionStep", decisionResult.step);   
 				basicDataMap.put("feature_previousDecisionStep", (Integer.valueOf((String)decisionResult.step)-1));
 
-				
-				
 			}else{
 				basicDataMap.put("feature_decision", ""+feature.getValue());
 				basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
 				basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
 				basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
 			}
-			
-		
 			
 			
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
@@ -223,7 +200,6 @@ public class FCWInteractiveConfigurationElementsProducer {
 			
 			basicDataMap.put("feature_max",featureCardinality.maxValue);
 			basicDataMap.put("feature_max_dummy",featureCardinality.maxDummyValue);
-			
 			
 			
 			getFeatureCardinalityForVisualization(feature, viewDir, modelDir, featureModelFileName, featureModelName, viewName, visualizationType, featureCardinality,fmChilds,true);
@@ -351,7 +327,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_group_max", -1 );
 		
 			if ( feature instanceof FeatureGroup ) {
-				FeatureGroup group = (FeatureGroup)feature;
+				//TODO: Remove unused variables
+				// FeatureGroup group = (FeatureGroup)feature;
 				basicDataMap.put("feature_group_min", featureCardinality.minValue);
 				basicDataMap.put("feature_group_max", featureCardinality.maxValue);
 			}
@@ -431,14 +408,13 @@ public class FCWInteractiveConfigurationElementsProducer {
 				basicDataMap.put("feature_group_max", -1 );
 			
 				if ( feature instanceof FeatureGroup ) {
-					FeatureGroup group = (FeatureGroup)feature;
+					//TODO: Remove unused variables
+					// FeatureGroup group = (FeatureGroup)feature;
 					basicDataMap.put("feature_group_min", featureCardinality.minValue);
 					basicDataMap.put("feature_group_max", featureCardinality.maxValue);
 				}
 
 				basicDataMap.put("feature_name", getFeatureName(feature,featureCardinality.minValue,featureCardinality.maxValue));
-				
-				
 				
 				
 			}else{
@@ -477,10 +453,13 @@ public class FCWInteractiveConfigurationElementsProducer {
 		
 	}
 	
-	
-	
+	//TODO: Define types for the stepData Map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void produceStepTemplateElement(ConfigurationStep step, Map stepData) {
-		String output= "";		
+		
+		//TODO: Remove unused variables
+		// String output= "";		
+		
 		try {
 			stepData.put("step_id", step.getId());
 			List stepManualDecisionsList = new LinkedList();
@@ -510,7 +489,10 @@ public class FCWInteractiveConfigurationElementsProducer {
 		}
 	}
 
+	//TODO: Define types for the stepData and tempMap maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String produceStepElement(ConfigurationStep step, Map stepData) {
+		
 		String output= "";		
 		try {
 			if ( stepElementTemplate == null ) {
@@ -549,6 +531,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 		return output;
 	}
 	
+	//TODO: Define types for the stepData and tempMap maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String produceStepElement(String stepID,ConfigurationStep step, Map stepData) {
 		String output= "";		
 		try {
@@ -778,10 +762,14 @@ public class FCWInteractiveConfigurationElementsProducer {
 
 		}else if (visualizationType.compareToIgnoreCase("collapsed")==0) {
 	
-			/*	FeatureModel featureModel = null;
-		*/
-			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-			//Methods.checkFeatureInViewStatus(feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,featureInViewCheckingResult,visualizationType); 
+			/*	
+			 FeatureModel featureModel = null;
+			*/
+			
+			//TODO: Remove unused variables
+			// FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
+			
+			// Methods.checkFeatureInViewStatus(feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,featureInViewCheckingResult,visualizationType); 
 
 			if (viewValue){
 			

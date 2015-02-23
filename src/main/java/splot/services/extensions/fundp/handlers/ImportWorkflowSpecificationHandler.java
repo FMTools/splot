@@ -2,41 +2,31 @@
 package splot.services.extensions.fundp.handlers;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.io.Writer;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.FactoryConfigurationError;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.http.client.HttpClient;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-
 import splot.core.FreeMarkerHandler;
-import splot.core.Handler;
 import splot.core.HandlerExecutionException;
 
 /** ImportWorkflowSpecificationHandler receives the workflow specification in an XML data and saves it in a folder containing the files of the workflow specifications.    
@@ -56,13 +46,14 @@ public class ImportWorkflowSpecificationHandler extends FreeMarkerHandler{
 	}
 
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void buildModel(HttpServletRequest request,
 			HttpServletResponse response, Map templateModel)
 			throws HandlerExecutionException {
-		// TODO Auto-generated method stub
+
+		//TODO: Define types for the parameters, messages and templateModel Map
 		
-	
 		String responseMessage=""; 
 	   	String  xmlData="";    
 		boolean validData=false;
@@ -149,10 +140,6 @@ public class ImportWorkflowSpecificationHandler extends FreeMarkerHandler{
 		message.put("value", responseMessage);
 		messages.add(message);
 		templateModel.put("messages", messages);
-		
-		
-		
-		
 	
 			
 	}

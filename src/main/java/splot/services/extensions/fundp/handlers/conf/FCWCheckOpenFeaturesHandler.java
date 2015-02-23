@@ -23,15 +23,16 @@ public class FCWCheckOpenFeaturesHandler extends Handler {
 		
 			try {
 				
-				
 				String viewName=request.getParameter("viewName");
 				String selectedModels=request.getParameter("selectedModels");
-				String taskName=request.getParameter("taskName");
 				String userKey=request.getParameter("userKey");
-				String workflowName=request.getParameter("workflowName");
 				String modelName=request.getParameter("modelName");
-				String userName=request.getParameter("userName");
-				String userID=request.getParameter("userID");
+
+				//TODO: Remove unused variables
+				//String taskName=request.getParameter("taskName");
+				//String workflowName=request.getParameter("workflowName");
+				//String userName=request.getParameter("userName");
+				//String userID=request.getParameter("userID");
 				
 				String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
 	    		String modelDir=getServlet().getInitParameter("modelsPath");
@@ -49,8 +50,6 @@ public class FCWCheckOpenFeaturesHandler extends Handler {
 				}else{
 					response.getWriter().write("fileNotFound");
 				}
-				
-
 				
 			} catch (Exception e) {
 				// TODO: handle exception

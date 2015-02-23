@@ -28,6 +28,8 @@ public class RunFeatureModelAnalysesHandler extends AbstractFeatureModelHandler 
 		response.setContentType("text/xml; charset=" + template.getEncoding());
 	}
 	
+	//TODO: define types for the modelmap and root maps 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map buildModel(Map modelMap, Map root, HttpServletRequest request) throws ServletException, IOException {
 
         FeatureModel model = (FeatureModel)modelMap.get("model");

@@ -31,6 +31,8 @@ public class FeatureModelEditorHandler extends FreeMarkerHandler {
 		super(handlerName, servlet, configuration, template);
 	}
 	
+	//TODO: Define types for the templateModel map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
         try {        	
         	
@@ -143,6 +145,8 @@ public class FeatureModelEditorHandler extends FreeMarkerHandler {
 		}
 	}
 	
+	//TODO: define types for the featureData and templateModel maps
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private Map createFeatureModelTemplateModel(FeatureModel featureModel, FeatureTreeNode featureNode, Map templateModel, List features, int level) {
 
 		Map featureData = new HashMap();

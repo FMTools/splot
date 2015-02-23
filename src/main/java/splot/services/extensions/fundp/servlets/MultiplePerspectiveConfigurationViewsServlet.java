@@ -133,9 +133,6 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
           	addHandler(new FCWInstanceInteractiveConfigurationExportConfigurationHandler("export_instance_configuration_csv", this, cfg, cfg.getTemplate("fcw_export_configuration_csv.ftl")));
         	addHandler(new FCWInstanceInteractiveConfigurationExportConfigurationHandler("export_instance_configuration_xml", this, cfg, cfg.getTemplate("fcw_export_configuration_xml.ftl")));
 
-        	
-        	
-        	
         }
         catch(IOException e) {
         	e.printStackTrace();

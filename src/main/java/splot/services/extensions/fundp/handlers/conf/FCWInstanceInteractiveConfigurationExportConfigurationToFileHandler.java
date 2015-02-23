@@ -1,13 +1,11 @@
 package splot.services.extensions.fundp.handlers.conf;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletConfig;
@@ -30,32 +28,28 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 import splar.core.fm.FeatureGroup;
 import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureTreeNode;
 import splar.core.fm.GroupedFeature;
 import splar.core.fm.SolitaireFeature;
 import splar.core.fm.configuration.ConfigurationEngine;
-import splot.core.FreeMarkerHandler;
 import splot.core.Handler;
 import splot.core.HandlerExecutionException;
 import splot.services.extensions.fundp.utilities.Methods;
 
 public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler extends Handler{
+	
 	public FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler(String handlerName, HttpServlet servlet) {
 		super(handlerName, servlet);
 	}
-	
-	
+		
+	//TODO: Define types for the JSON Object Map
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-			
-		
  				String retValue="";
  				String result="";
  				Map jsonObj=new LinkedHashMap();
@@ -64,25 +58,19 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler
 
 		 	    String userKey=request.getParameter("userKey");
 		 	   
-
- 				
 		  try {	
 			  
 	    		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
 	    		String modelDir=getServlet().getInitParameter("modelsPath");
 				String configuredModelsPath=getServlet().getServletContext().getRealPath("/")+ "models/configured_models"; 
 		    	
-		 	    
-		 	    
-		 	    
-		 	    String userName=request.getParameter("userName");
+
+				String userName=request.getParameter("userName");
 		 	    if(userName==null){
 		 	    	sc.setAttribute(userKey+"_lock", "free");
 		        	throw new HandlerExecutionException("Paremeter 'user name' is missing");
 
 		 	    }
-		 	    
-		 	    
 		 	    
 			     String workflow=request.getParameter("workflowName");
 			 	 if(workflow==null){
@@ -155,11 +143,9 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler
 		        		
 		        		retValue = JSONValue.toJSONString(jsonObj);
 		        	}
-
 	 	 			
 	        		
 	        		if (configuredFileName.compareToIgnoreCase("false")==0){
-		        		FeatureModel model = confEngine.getModel();
 			    		if (confEngine == null) {
 			    			sc.setAttribute(userKey+"_lock", "free");
 			    			jsonObj.put("result", "error");
@@ -168,7 +154,9 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
 			    		}
-			    		
+
+		        		FeatureModel model = confEngine.getModel();
+
 						 try{
 							
 			    			 configuredFileName=Methods.createConfiguredModelFileName(featureModelFileName);
@@ -228,7 +216,6 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler
 
 		        		}else{
 		        			
-							FeatureModel model = confEngine.getModel();
 				    		if (confEngine == null) {
 				    			sc.setAttribute(userKey+"_lock", "free");
 				    			jsonObj.put("result", "error");
@@ -237,8 +224,8 @@ public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler
 
 				        		retValue = JSONValue.toJSONString(jsonObj);
 				    			response.getWriter().write(retValue);
-
 				    		}
+							FeatureModel model = confEngine.getModel();
 				        	
 				    		result=appendConfigurationFile(configuredFileName, configuredModelsPath, userName, userID,  task,"task", strDate,"configured");
 				        	
