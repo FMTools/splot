@@ -1,3 +1,5 @@
+<#include "config/splot_config.ftl" />
+
 <#if !hasError> 
 
 <#function genConstraintLiterals literals>
@@ -87,22 +89,11 @@
 </#if>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.3/dijit/themes/nihilo/nihilo.css"/>
 
@@ -1561,7 +1552,7 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=realtime_analyses",
+            url: "/${contextName}/SplotEditorServlet?action=realtime_analyses",
             sync : false,
             form: "featureModelSendToServerForm",
             handleAs: "json",
@@ -1759,7 +1750,7 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=export_model",
+            url: "/${contextName}/SplotEditorServlet?action=export_model",
             form: "featureModelSendToServerForm",
             handleAs: "json",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
@@ -1791,14 +1782,14 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=configure_model",
+            url: "/${contextName}/SplotEditorServlet?action=configure_model",
             form: "featureModelSendToServerForm",
             handleAs: "json",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
             load: function(response, ioArgs) {
                 //dumpJSON(response);
                 closeNotificationDialog();                
-                var configURL = '/SPLOT/SplotConfigurationServlet?action=interactive_configuration_main&op=reset&userModels=&tmpModelPath=temp_models&selectedModels=' + response.model_filename;
+                var configURL = '/${contextName}/SplotConfigurationServlet?action=interactive_configuration_main&op=reset&userModels=&tmpModelPath=temp_models&selectedModels=' + response.model_filename;
                 window.open(
                 	configURL,
                 	'SPLOT Interactive Configurator', 
@@ -1827,7 +1818,7 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=save_model_to_repository&new_model=" + isNewModelInRepository + "&model_filename_in_repository=" + modelFileNameInRepository,
+            url: "/${contextName}/SplotEditorServlet?action=save_model_to_repository&new_model=" + isNewModelInRepository + "&model_filename_in_repository=" + modelFileNameInRepository,
             form: "featureModelSendToServerForm",
             handleAs: "json",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
@@ -1841,13 +1832,13 @@ Released   : 20081103
 	                if ( response.new_model ) {
 						dojo.byId('topMessage2').innerHTML = 
 							'<img src="images/important_icon.jpg"/>' +
-							'Your model has been <b>added</b> to SPLOT\'s repository! <a target="_new" href="/SPLOT/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
+							'Your model has been <b>added</b> to SPLOT\'s repository! <a target="_new" href="/${contextName}/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
 	                	triggerNotificationDialog('message', 'SPLOT Feature Model Editor', 'A <b>new entry</b> has been created for your model in the repository');
 					}
 					else {
 						dojo.byId('topMessage2').innerHTML = 
 							'<img src="images/important_icon.jpg"/>' +
-							'Your model has been <b>updated</b> at SPLOT\'s repository! <a target="_new" href="/SPLOT/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
+							'Your model has been <b>updated</b> at SPLOT\'s repository! <a target="_new" href="/${contextName}/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
 						triggerNotificationDialog('message', 'SPLOT Feature Model Editor', 'Your model has been <b>updated</b> in the repository');					
 					}
 					dojo.byId('topMessage2').style.display = 'inline';
@@ -1899,6 +1890,10 @@ Released   : 20081103
 
 </head>
 <body class="nihilo">
+
+<#include "theme/${theme}/splot_header.ftl" />
+<#include "theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_editor" );</script>
 
 <#if !hasError>
 
@@ -2090,20 +2085,6 @@ Released   : 20081103
 
 </#if>
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index.html">Home</a></li> 
-		<li class="first"><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
 
 <div id="wrapper"> 
 <div class="btm"> 
@@ -2478,22 +2459,9 @@ Released   : 20081103
 </div> 
 </div> 
 
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009.</p> 
-</div> 
-<!-- end #footer --> 
-	
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1626595-6");
-pageTracker._trackPageview();
-} catch(err) {}
+<#include "theme/${theme}/splot_footer.ftl" />	
+<#include "theme/${theme}/splot_ga.ftl" />
 
-</script>
 </body>
 </html>
 

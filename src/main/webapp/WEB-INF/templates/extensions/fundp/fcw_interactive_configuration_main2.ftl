@@ -1,3 +1,4 @@
+<#include "config/splot_config.ftl" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -12,7 +13,7 @@ Released   : 20081103
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="refresh" content="20000; url=/SPLOT/start.html"/>
+<meta http-equiv="refresh" content="20000; url=/${contextName}/start.html"/>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
 <link type="text/css" rel="stylesheet" href="splot.css"/>
@@ -166,13 +167,13 @@ Released   : 20081103
 		 if(workflowExistence=="true"){
 		
 		 
-		 	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=repository&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&newSession=false";
+		 	    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=repository&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&newSession=false";
 				oXMLRequest.open("GET",strValidationServiceUrl,true);
 				oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
 				oXMLRequest.send(null);
 		 
 	  	 }else{
-			    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save";
+			    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save";
 			    
 				oXMLRequest.open("GET",strValidationServiceUrl,true);
 				oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
@@ -228,7 +229,7 @@ Released   : 20081103
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=next";
+	    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=next";
 	    
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = OnGoNextTask;
@@ -296,7 +297,7 @@ Released   : 20081103
 			}
 			
 			
-			var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=check_open_features"+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID);
+			var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=check_open_features"+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID);
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange = OnCheckDependencySet;
 			oXMLRequest.send(null);
@@ -349,7 +350,7 @@ Released   : 20081103
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=exit";
+	    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=exit";
 	    
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = OnExitConfiguration;
@@ -401,7 +402,7 @@ Released   : 20081103
 	
 	
 		setToggleFeature(toggleFeatureId)
-		ajaxObj = new sack("/SPLOT/MultiplePerspectiveConfigurationViewsServlet");
+		ajaxObj = new sack("/${contextName}/MultiplePerspectiveConfigurationViewsServlet");
 	  	ajaxObj.method = "GET";
 	  	ajaxObj.onCompletion = function() 
 	  	{
@@ -427,10 +428,10 @@ Released   : 20081103
 		
 		
 	  if(workflowExistence=="true"){
-	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
+	  	   window.location = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
 	  
 	  }else{
-	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	  	   window.location = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	  }			
 		
 	}
@@ -441,7 +442,7 @@ Released   : 20081103
 	*  export:csv format
 	*******************************************************/
 	function exportToCSVFile() {
-	  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=csv&userKey="+trimAll(userKey);
+	  	   window.location ="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=csv&userKey="+trimAll(userKey);
 	}
 	
 	
@@ -450,7 +451,7 @@ Released   : 20081103
 	*******************************************************/
 	function exportToXMLFile() {
 	
-	  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=xml&userKey="+trimAll(userKey);
+	  	   window.location ="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=xml&userKey="+trimAll(userKey);
 	}
 	
 	
@@ -459,7 +460,7 @@ Released   : 20081103
 	*******************************************************/
 	function exportToXMLFileWithView() {
 			viewName=getListSelectedValue(document.getElementById('view_list'));
-		  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml&view="+viewName;
+		  	   window.location ="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml&view="+viewName;
 	}
 	
 	
@@ -469,7 +470,7 @@ Released   : 20081103
 	*  Highlight selection button
 	*******************************************************/
 	function highlightSelectionButton(img,imgname) {
-	  img.src = "/SPLOT/images/" + imgname;
+	  img.src = "/${contextName}/images/" + imgname;
 	}
 	
 	/******************************************************
@@ -480,11 +481,11 @@ Released   : 20081103
 	   var img = document.getElementById(featureid+"_icon"); 
 	   if ( el.style.display != 'none' ) {
 	       el.style.display = 'none';
-	       img.src = "/SPLOT/images/plus.jpg";
+	       img.src = "/${contextName}/images/plus.jpg";
 	   }
 	   else {
 	       el.style.display = '';
-	       img.src = "/SPLOT/images/minus.jpg";
+	       img.src = "/${contextName}/images/minus.jpg";
 	   }   
 	}
 	
@@ -707,10 +708,10 @@ Released   : 20081103
 	
 	if(workflowExistence=="true"){
 	  
-	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
+	  	   window.location = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
 	  
 	  }else{
-		   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+		   window.location = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	  }	
 	
 	
@@ -728,10 +729,10 @@ Released   : 20081103
 	
 	  if(workflowExistence=="true"){
 	  
-	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
+	  	   window.location = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
 	  
 	  }else{
-			 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+			 window.location = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	  }	
 	  
 	  
@@ -759,10 +760,10 @@ Released   : 20081103
 	    tmpURL="";
 	    
 	    if(workflowExistence=="true"){
-	      	     tmpURL="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=configuration&operation=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&userKey="+userKey+"&modelName="+featureModelName+"&workflowName="+workflowName+"&newSession=false"+"&taskName="+taskName+"&userName="+userName+"&userID="+userID;
+	      	     tmpURL="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=configuration&operation=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&userKey="+userKey+"&modelName="+featureModelName+"&workflowName="+workflowName+"&newSession=false"+"&taskName="+taskName+"&userName="+userName+"&userID="+userID;
 	  
 	    }else{
-	      	     tmpURL="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	      	     tmpURL="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	    }
 
 
@@ -1275,12 +1276,12 @@ Released   : 20081103
 							<!--	
 								<span>
 									<p><b>Legend</b>:
-									<br><img src="/SPLOT/images/checkmark.gif">select feature&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/crossmark.gif">deselect feature&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/toggle.gif">toggle feature&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/manual.gif">manual decision&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/propagated.gif">propagated decision&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/auto-completion.gif">auto-completion decision&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/checkmark.gif">select feature&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/crossmark.gif">deselect feature&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/toggle.gif">toggle feature&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/manual.gif">manual decision&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/propagated.gif">propagated decision&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/auto-completion.gif">auto-completion decision&nbsp;&nbsp;&nbsp;
 									</p>
 								</span>
 							-->
@@ -1316,7 +1317,7 @@ Released   : 20081103
 														<a target="_new" href="javascript:exportToCSVFile()">CSV file</a> |  
 														<a target="_new" href="javascript:exportToXMLFile()">XML</a>)
 													<#else>
-														<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
+														<a target="_new" href="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
 														<a target="_new" href="javascript:exportToXMLFileWithView()">XML</a>)
 												 </#if>
 												
@@ -1324,7 +1325,7 @@ Released   : 20081103
 												 
 											</span>
 											<span style="display:<#if done>none<#else>block</#if>;" id="auto-completion-element">
-												<img title="Automatically completes configuration" src="/SPLOT/images/auto-completion.gif"/>
+												<img title="Automatically completes configuration" src="/${contextName}/images/auto-completion.gif"/>
 												Auto-completion: 
 												<a title="Attempts to DESELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','false')">Less Features</a> | 
 												<a title="Attempts to SELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','true')">More Features</a> 

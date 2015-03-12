@@ -1,3 +1,4 @@
+<#include "WEB-INF/templates/config/splot_config.ftl" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -14,22 +15,22 @@ Released   : 20081103
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="/SPLOT/splot.css"/>
+<link type="text/css" rel="stylesheet" href="/${contextName}/css/default/splot.css"/>
 
-<script type="text/javascript" src="/SPLOT/js/ajax.js"></script> 
-<script type="text/javascript" src="/SPLOT/js/ajax-dynamic-content.js"></script>
+<script type="text/javascript" src="/${contextName}/js/ajax.js"></script> 
+<script type="text/javascript" src="/${contextName}/js/ajax-dynamic-content.js"></script>
 
 <script type="text/javascript"> 
 <!--
  
 function openModelSelectionPage() 
 {
-	ajax_loadContent('model_list','/SPLOT/SplotAnalysesServlet?action=select_model&enableSelection=true&selectionMode=single&serviceURL=/SPLOT/SplotEditorServlet&serviceHTTPMethod=POST&showModelDetails=false&serviceAction=feature_model_editor');
+	ajax_loadContent('model_list','/${contextName}/SplotAnalysesServlet?action=select_model&enableSelection=true&selectionMode=single&serviceURL=/${contextName}/SplotEditorServlet&serviceHTTPMethod=POST&showModelDetails=false&serviceAction=feature_model_editor');
 } 
 
 function openModelSelectionPage_view() 
 {
-	ajax_loadContent('model_list','/SPLOT/SplotAnalysesServlet?action=select_model&enableSelection=true&selectionMode=single&serviceURL=/SPLOT/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=POST&showModelDetails=false&serviceAction=view_specification_editor');
+	ajax_loadContent('model_list','/${contextName}/SplotAnalysesServlet?action=select_model&enableSelection=true&selectionMode=single&serviceURL=/${contextName}/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=POST&showModelDetails=false&serviceAction=view_specification_editor');
 } 
 -->
 </script>
@@ -37,16 +38,16 @@ function openModelSelectionPage_view()
 </head>
 <body class="nihilo">
 
-<div id="header"><div id="logo"><img src="/SPLOT/images/splot.jpg"/></div></div> 
+<div id="header"><div id="logo"><img src="/${contextName}/images/splot.jpg"/></div></div> 
 
 <!-- end #header --> 
 <div id="menu"> 
 	<ul> 
-		<li><a href="/SPLOT/index.html">Home</a></li> 
-		<li class="first"><a href="/SPLOT/feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="/SPLOT/automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="/SPLOT/product_configuration.html">Product Configuration</a></li> 
-		<li><a href="/SPLOT/feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="/${contextName}/index.html">Home</a></li> 
+		<li class="first"><a href="/${contextName}/feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="/${contextName}/automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="/${contextName}/product_configuration.html">Product Configuration</a></li> 
+		<li><a href="/${contextName}/feature_model_repository.html">Feature Model Repository</a></li> 
 		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
 	</ul> 
 </div> 
@@ -65,17 +66,17 @@ function openModelSelectionPage_view()
 						<tr><td align="left">
 								  <img style="cursor: pointer; width: 140px; height: 110px" 
 								 onclick="openModelSelectionPage_view();"
-								 onmouseover="this.src='/SPLOT/images/specify_view2.png'"
-								 onmouseout="this.src='/SPLOT/images/specify_view1.png'"	  
+								 onmouseover="this.src='/${contextName}/images/specify_view2.png'"
+								 onmouseout="this.src='/${contextName}/images/specify_view1.png'"	  
 								 title="Specify view" 
-								 src="/SPLOT/images/specify_view1.png"/>
+								 src="/${contextName}/images/specify_view1.png"/>
 								 
 								 <img style="cursor: pointer; width: 140px; height: 110px" 
-								 onclick="window.location='/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=view_allocation_editor&show_type=edit'"
-								 onmouseover="this.src='/SPLOT/images/allocate_view2.png'"
-								 onmouseout="this.src='/SPLOT/images/allocate_view1.png'"	  
+								 onclick="window.location='/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=view_allocation_editor&show_type=edit'"
+								 onmouseover="this.src='/${contextName}/images/allocate_view2.png'"
+								 onmouseout="this.src='/${contextName}/images/allocate_view1.png'"	  
 								 title="Allocate view to workflow and task" 
-								 src="/SPLOT/images/allocate_view1.png"/>
+								 src="/${contextName}/images/allocate_view1.png"/>
 				
 						</td></tr>
 					

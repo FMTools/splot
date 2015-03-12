@@ -1,3 +1,4 @@
+<#include "config/splot_config.ftl" />
 <#if !hasError> 
 
 <#function genConstraintLiterals literals>
@@ -1589,7 +1590,7 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=realtime_analyses",
+            url: "/${contextName}/SplotEditorServlet?action=realtime_analyses",
             sync : false,
             form: "featureModelSendToServerForm",
             handleAs: "json",
@@ -1794,7 +1795,7 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=export_model",
+            url: "/${contextName}/SplotEditorServlet?action=export_model",
             form: "featureModelSendToServerForm",
             handleAs: "json",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
@@ -1826,14 +1827,14 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=configure_model",
+            url: "/${contextName}/SplotEditorServlet?action=configure_model",
             form: "featureModelSendToServerForm",
             handleAs: "json",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
             load: function(response, ioArgs) {
                 //dumpJSON(response);
                 closeNotificationDialog();                
-                var configURL = '/SPLOT/SplotConfigurationServlet?action=interactive_configuration_main&op=reset&userModels=&tmpModelPath=temp_models&selectedModels=' + response.model_filename;
+                var configURL = '/${contextName}/SplotConfigurationServlet?action=interactive_configuration_main&op=reset&userModels=&tmpModelPath=temp_models&selectedModels=' + response.model_filename;
                 window.open(
                 	configURL,
                 	'SPLOT Interactive Configurator', 
@@ -1862,7 +1863,7 @@ Released   : 20081103
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotEditorServlet?action=save_model_to_repository&new_model=" + isNewModelInRepository + "&model_filename_in_repository=" + modelFileNameInRepository,
+            url: "/${contextName}/SplotEditorServlet?action=save_model_to_repository&new_model=" + isNewModelInRepository + "&model_filename_in_repository=" + modelFileNameInRepository,
             form: "featureModelSendToServerForm",
             handleAs: "json",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
@@ -1876,13 +1877,13 @@ Released   : 20081103
 	                if ( response.new_model ) {
 						dojo.byId('topMessage2').innerHTML = 
 							'<img src="images/important_icon.jpg"/>' +
-							'Your model has been <b>added</b> to SPLOT\'s repository! <a target="_new" href="/SPLOT/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
+							'Your model has been <b>added</b> to SPLOT\'s repository! <a target="_new" href="/${contextName}/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
 	                	triggerNotificationDialog('message', 'SPLOT Feature Model Editor', 'A <b>new entry</b> has been created for your model in the repository');
 					}
 					else {
 						dojo.byId('topMessage2').innerHTML = 
 							'<img src="images/important_icon.jpg"/>' +
-							'Your model has been <b>updated</b> at SPLOT\'s repository! <a target="_new" href="/SPLOT/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
+							'Your model has been <b>updated</b> at SPLOT\'s repository! <a target="_new" href="/${contextName}/feature_model_repository.html">Click here</a> to browse the repository in a <b>new page</b>.';
 						triggerNotificationDialog('message', 'SPLOT Feature Model Editor', 'Your model has been <b>updated</b> in the repository');					
 					}
 					dojo.byId('topMessage2').style.display = 'inline';
@@ -2077,7 +2078,7 @@ Released   : 20081103
 		}
 	    
 	    try{ 
-		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+relatedFeatureModel+"&type=defined";
+		    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+relatedFeatureModel+"&type=defined";
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange = onCheckViewsCoverageResult;
 			oXMLRequest.send(null);
@@ -2129,7 +2130,7 @@ Released   : 20081103
 	    
 	    try{ 
 			var XPathExpression=trimAll(document.getElementById("view_xpath").value);
-		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=validate_xpath&feature_model_file_name="+featureModelFileNameInRepository+"&xpath_expression="+XPathExpression;
+		    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=validate_xpath&feature_model_file_name="+featureModelFileNameInRepository+"&xpath_expression="+XPathExpression;
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange = onCheckXPathValidationResult;
 			oXMLRequest.send(null);
@@ -2192,7 +2193,7 @@ Released   : 20081103
 		}
 	                                                                 
 	
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_specification&feature_model_file_name=" + featureModelFileNameInRepository +"&related_feature_model="+relatedFeatureModel+ "&view_file_name_in_repository=" + viewFileNameInRepository+"&view_name="+trimAll(document.getElementById("view_name").value);
+	    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_specification&feature_model_file_name=" + featureModelFileNameInRepository +"&related_feature_model="+relatedFeatureModel+ "&view_file_name_in_repository=" + viewFileNameInRepository+"&view_name="+trimAll(document.getElementById("view_name").value);
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = deleteViewResult;
 		oXMLRequest.send(null);
@@ -2348,7 +2349,7 @@ Released   : 20081103
 		}
 	                                                                 
 	
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_view_to_repository&feature_model_file_name=" + featureModelFileNameInRepository +"&related_feature_model="+relatedFeatureModel+ "&view_file_name_in_repository=" + viewFileNameInRepository+"&view_in_json="+viewToJSON;
+	    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=save_view_to_repository&feature_model_file_name=" + featureModelFileNameInRepository +"&related_feature_model="+relatedFeatureModel+ "&view_file_name_in_repository=" + viewFileNameInRepository+"&view_in_json="+viewToJSON;
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = saveViewToRepositoryResult;
 		oXMLRequest.send(null);
@@ -2470,7 +2471,7 @@ Released   : 20081103
 	}
 	
 	
-	var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_view_detail&viewName=" +val+"&viewFileName="+viewFileNameInRepository ;
+	var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=response_view_detail&viewName=" +val+"&viewFileName="+viewFileNameInRepository ;
 	oXMLRequest.open("GET",strValidationServiceUrl,true);
 	oXMLRequest.onreadystatechange = updateViewDetails;
 	oXMLRequest.send(null);

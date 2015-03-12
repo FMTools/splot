@@ -1,3 +1,4 @@
+<#include "config/splot_config.ftl" />
 <#if hasError>
 	<p><span class="errorMessage">ERROR: ${errorMessage}.</span></p>
 	<p><a href="javascript:history.back()">Back</a></p>						
@@ -13,7 +14,7 @@
 	<!--
 	 function sortModels(sortBy) 
 	{
-		ajax_loadContent('_model_repository','/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=select_workflow&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
+		ajax_loadContent('_model_repository','/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=select_workflow&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
 	} 
 	
 		/******************************************************

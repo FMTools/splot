@@ -1,3 +1,4 @@
+<#include "config/splot_config.ftl" />
 
 <#-- DO *NOT* CHANGE THE <TD> ELEMENTS like adding any attributes, e.g., class="", id="" -->
 
@@ -5,7 +6,7 @@
 <tr id="step${step_id}_row">
 	<td><span style="text-align: center">${step_id}</span>
 	<#if step_id != "1">
-	   <img onMouseOver="this.src='/SPLOT/images/undoh.gif'" onMouseOut="this.src='/SPLOT/images/undo.gif'" onclick="javascript:updateConfigurationElements('undo','step',${step_id})" title="Backtracks all decisions up to the previous step" src="/SPLOT/images/undo.gif">
+	   <img onMouseOver="this.src='/${contextName}/images/undoh.gif'" onMouseOut="this.src='/${contextName}/images/undo.gif'" onclick="javascript:updateConfigurationElements('undo','step',${step_id})" title="Backtracks all decisions up to the previous step" src="/${contextName}/images/undo.gif">
 	</#if>
 	</td>
 	<td>

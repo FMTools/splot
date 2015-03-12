@@ -1,3 +1,4 @@
+<#include "WEB-INF/templates/config/splot_config.ftl" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -14,17 +15,17 @@ Released   : 20081103
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="/SPLOT/splot.css"/>
+<link type="text/css" rel="stylesheet" href="/${contextName}/css/default/splot.css"/>
 
-<script type="text/javascript" src="/SPLOT/js/ajax.js"></script> 
-<script type="text/javascript" src="/SPLOT/js/ajax-dynamic-content.js"></script>
+<script type="text/javascript" src="/${contextName}/js/ajax.js"></script> 
+<script type="text/javascript" src="/${contextName}/js/ajax-dynamic-content.js"></script>
 
 <script type="text/javascript"> 
 <!--
  
 function openModelSelectionPage() 
 {
-	ajax_loadContent('model_list','/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=select_model&enableSelection=true&selectionMode=single&serviceURL=/SPLOT/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=GET&showModelDetails=false&serviceAction=interactive_configuration_main');
+	ajax_loadContent('model_list','/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=select_model&enableSelection=true&selectionMode=single&serviceURL=/${contextName}/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=GET&showModelDetails=false&serviceAction=interactive_configuration_main');
 } 
 -->
 </script>
@@ -32,17 +33,17 @@ function openModelSelectionPage()
 </head>
 <body onload="javascript:openModelSelectionPage();">
 
-<div id="header"><div id="logo"><img src="/SPLOT/images/splot.jpg"/></div></div> 
+<div id="header"><div id="logo"><img src="/${contextName}/images/splot.jpg"/></div></div> 
 
 <!-- end #header --> 
 <div id="menu"> 
 	<ul> 
-		<li><a href="/SPLOT/index.html">Home</a></li> 
-		<li><a href="/SPLOT/feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="/SPLOT/automated_analyses.html">Automated Analysis</a></li> 
-		<li class="first"><a href="/SPLOT/product_configuration.html">Product Configuration</a></li> 
-		<li><a href="/SPLOT/feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="/SPLOT/http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
+		<li><a href="/${contextName}/index.html">Home</a></li> 
+		<li><a href="/${contextName}/feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="/${contextName}/automated_analyses.html">Automated Analysis</a></li> 
+		<li class="first"><a href="/${contextName}/product_configuration.html">Product Configuration</a></li> 
+		<li><a href="/${contextName}/feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="/${contextName}/http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
 	</ul> 
 </div> 
 <!-- end #menu --> 

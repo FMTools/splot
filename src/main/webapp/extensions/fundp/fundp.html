@@ -1,3 +1,4 @@
+<#include "WEB-INF/templates/config/splot_config.ftl" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -14,7 +15,7 @@ Released   : 20081103
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="/SPLOT/splot.css"/>
+<link type="text/css" rel="stylesheet" href="/${contextName}/splot.css"/>
 <style type="text/css">
 .caption{font-style:italic;}
 .toc1{font-size:12pt;}
@@ -35,17 +36,17 @@ padding:5px;
 
 </head>
 <!--<body style="line-height:16px;">-->
-<div id="header"><div id="logo"><img src="/SPLOT/images/splot.jpg"/></div></div> 
+<div id="header"><div id="logo"><img src="/${contextName}/images/splot.jpg"/></div></div> 
 
 <!-- end #header --> 
 <div id="menu"> 
 	<ul> 
-		<li class="first"><a href="/SPLOT/index.html">Home</a></li> 
-		<li><a href="/SPLOT/feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="/SPLOT/automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="/SPLOT/product_configuration.html">Product Configuration</a></li> 
-		<li><a href="/SPLOT/feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="/SPLOT/contact_us.html">Contact Us</a></li> 
+		<li class="first"><a href="/${contextName}/index.html">Home</a></li> 
+		<li><a href="/${contextName}/feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="/${contextName}/automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="/${contextName}/product_configuration.html">Product Configuration</a></li> 
+		<li><a href="/${contextName}/feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="/${contextName}/contact_us.html">Contact Us</a></li> 
 	</ul> 
 </div> 
 <!-- end #menu --> 
@@ -60,8 +61,8 @@ padding:5px;
                 
 					<div class="entry"> 
 						
-						<div id="fundp_logo"> <a href="http://www.fundp.ac.be/en/inf"> <img src="/SPLOT/images/fundp_logo.jpg" style="float:right; margin-right:5px; margin-top:15px; padding:5px;"/> </a></div>
-						<div id="fundp_logo"> <a href="http://www.fundp.ac.be/en/inf"> <img src="/SPLOT/images/precise_logo_whiteline.png" style="float:right; margin-right:25px; margin-top:15px; padding:5px;"/> </a></div>
+						<div id="fundp_logo"> <a href="http://www.fundp.ac.be/en/inf"> <img src="/${contextName}/images/fundp_logo.jpg" style="float:right; margin-right:5px; margin-top:15px; padding:5px;"/> </a></div>
+						<div id="fundp_logo"> <a href="http://www.fundp.ac.be/en/inf"> <img src="/${contextName}/images/precise_logo_whiteline.png" style="float:right; margin-right:25px; margin-top:15px; padding:5px;"/> </a></div>
 
 <div class="head">A Toolset for Feature Configuration Workflows</div>						
 							
@@ -109,7 +110,7 @@ Let us illustrate the concept of multi-view FD on the <a href="http://www.spaceb
 
 <div class="entry" style="text-align:center;"> 
 	<a name="Spacebelfig"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/multi-view-FD-spacebel.png" width="70%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/multi-view-FD-spacebel.png" width="70%"/></div>
 	<div class="caption">Figure 1 - FD of the CFDP with three alternative visualisations for the view of the TMTC integrator.</div>
 </div>
 
@@ -150,7 +151,7 @@ Among the variety of workflow languages, we picked YAWL as it is formal, has ext
 
 <div class="entry" style="text-align:center;"> 
 	<a name="FCWfig"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/featureconfigurationworkflow.png" width="70%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/featureconfigurationworkflow.png" width="70%"/></div>
 	<div class="caption">Figure 2 - Example of FCW applied to the Spacebel scenario.</div>
 </div>
 
@@ -174,7 +175,7 @@ The toolset we propose provides full-fledged support for workflow-driven FBC. <a
 
 <div class="entry" style="text-align:center;"> 
 	<a name="Archfig"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/fcw_architecture.png" width="70%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/fcw_architecture.png" width="70%"/></div>
 	<div class="caption">Figure 3 - Illustration of the main components of the toolset with a typical use case scenario.</div>
 </div>
 
@@ -221,7 +222,7 @@ At design time, in the YAWL editor, every atomic task in a workflow specificatio
 
 <div class="entry" style="text-align:center;"> 
 	<a name="ServUse"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/service_use.png" width="100%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/service_use.png" width="100%"/></div>
 	<div class="caption">Figure 4 - <em>Default Engine Worklist</em> assignment in the YAWL editor.</div>
 </div>
 
@@ -236,7 +237,7 @@ The URI must be: <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowServ
 
 <div class="entry" style="text-align:center;"> 
 	<a name="URIUse"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/uri_use.png" width="100%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/uri_use.png" width="100%"/></div>
 	<div class="caption">Figure 5 - <em>Custom Form URI</em> assignment in the YAWL editor.</div>
 </div>
 
@@ -267,7 +268,7 @@ The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href
 
 <div class="entry" style="text-align:center;"> 
 	<a name="control_panel"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/control_panel.png" width="100%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/control_panel.png" width="100%"/></div>
 	<div class="caption">Figure 6 - Control panel of the FCW Engine.</div>
 </div>
 
@@ -291,7 +292,7 @@ The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href
 
 <div class="entry" style="text-align:center;"> 
 	<a name="fcws_registration"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/fcws_registration.png" width="100%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/fcws_registration.png" width="100%"/></div>
 	<div class="caption">Figure 7 - Registration page of <em>Feature Configuration Workflow Service</em>.</div>
 </div>
 
@@ -321,7 +322,7 @@ Active instances identify which FDs are involved in the configuration process. A
 
 <div class="entry" style="text-align:center;"> 
 	<a name="registration"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/registration.png" width="100%"/></div>
+	<div id="multi-view-fd"><img src="/${contextName}/images/registration.png" width="100%"/></div>
 	<div class="caption">Figure 8 - Registration page of the FCW Engine.</div>
 </div>
 
@@ -337,10 +338,10 @@ The video below showcases a typical use case of the toolset. It starts with the 
 		<div id="getting-started">
 	  <img style="cursor: pointer; width: 60%; height: 50%" 
 								 onclick="window.location='http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/ICSE11-AbbasiHubauxHeymans-Demo.mov;'"
-								 onmouseover="this.src='/SPLOT/images/video-demo-short.png'"
-								 onmouseout="this.src='/SPLOT/images/video-demo-short.png'"	  
+								 onmouseover="this.src='/${contextName}/images/video-demo-short.png'"
+								 onmouseout="this.src='/${contextName}/images/video-demo-short.png'"	  
 								 title="Tool demonstration Video " 
-								 src="/SPLOT/images/video-demo-short.png">
+								 src="/${contextName}/images/video-demo-short.png">
 	
 </div>
 	<div class="caption">Video 1 - Getting Started.</div>
@@ -395,7 +396,7 @@ The video below showcases a typical use case of the toolset. It starts with the 
 
 <div id="row">	
 	<div id="left">
-		<img src="/SPLOT/images/eab.png" width="100%"/>
+		<img src="/${contextName}/images/eab.png" width="100%"/>
 	</div>
 	<div id="right">
 		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01007819/">Ebrahim Abbasi</a> <br> <br>
@@ -405,7 +406,7 @@ The video below showcases a typical use case of the toolset. It starts with the 
 </div>
 <div id="row">	
 	<div id="left">
-		<img src="/SPLOT/images/ahu.png" width="100%"/>
+		<img src="/${contextName}/images/ahu.png" width="100%"/>
 	</div>
 	<div id="right">
 		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01006851/">Arnaud Hubaux</a> <br> <br>
@@ -417,7 +418,7 @@ The video below showcases a typical use case of the toolset. It starts with the 
 
 <div id="row">	
 	<div id="left">
-		<img src="/SPLOT/images/phe.jpg" width="100%"/>
+		<img src="/${contextName}/images/phe.jpg" width="100%"/>
 	</div>
 	<div id="right">
 		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01003511/">Patrick Heymans</a> <br> <br>

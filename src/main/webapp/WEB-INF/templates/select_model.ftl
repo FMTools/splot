@@ -1,3 +1,5 @@
+<#include "config/splot_config.ftl" />
+
 <#if hasError>
 	<p><span class="errorMessage">ERROR: ${errorMessage}.</span></p>
 	<p><a href="javascript:history.back()">Back</a></p>						
@@ -6,7 +8,7 @@
 	<!--
 	 function sortModels(sortBy) 
 	{
-		ajax_loadContent('_model_repository','/SPLOT/SplotAnalysesServlet?action=select_model&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
+		ajax_loadContent('_model_repository','/${contextName}/SplotAnalysesServlet?action=select_model&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
 	} 
 	-->
 	</script>
@@ -58,7 +60,7 @@
 			<TD>${model.creator}&nbsp;</td>
 			<TD>${model.date}&nbsp;</td>
 			<#if showModelDetails>
-			<TD align="center"><a href="/SPLOT/SplotAnalysesServlet?action=show_model_details&modelFile=${model.file}">Click</a></td>
+			<TD align="center"><a href="/${contextName}/SplotAnalysesServlet?action=show_model_details&modelFile=${model.file}">Click</a></td>
 			</#if>
 		</tr>	
 		</#list>

@@ -1,24 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<#include "config/splot_config.ftl" />
+
 <head>
-<meta http-equiv="refresh" content="20000; url=/SPLOT/start.html"/>
+<meta http-equiv="refresh" content="20000; url=/${contextName}/start.html"/>
+
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.3/dijit/themes/nihilo/nihilo.css"/>
-
 <script type="text/javascript"
 	 	src="http://ajax.googleapis.com/ajax/libs/dojo/1.3/dojo/dojo.xd.js" 
 	 	djConfig="parseOnLoad: true, isDebug: false, dojoBlankHtmlUrl: 'blank.html'">
@@ -107,7 +99,7 @@ Released   : 20081103
 	*******************************************************/
 	function detectToggleConflicts(toggleFeatureId) {
 		setToggleFeature(toggleFeatureId)
-		ajaxObj = new sack("/SPLOT/SplotConfigurationServlet");
+		ajaxObj = new sack("/${contextName}/SplotConfigurationServlet");
 	  	ajaxObj.method = "GET";
 	  	ajaxObj.onCompletion = function() 
 	  	{
@@ -122,14 +114,14 @@ Released   : 20081103
 	*  Reset configuration
 	*******************************************************/
 	function resetConfiguration() {
-	   window.location = "/SPLOT/SplotConfigurationServlet?action=interactive_configuration_main&op=reset";
+	   window.location = "/${contextName}/SplotConfigurationServlet?action=interactive_configuration_main&op=reset";
 	}
 	
 	/******************************************************
 	*  Highlight selection button
 	*******************************************************/
 	function highlightSelectionButton(img,imgname) {
-	  img.src = "/SPLOT/images/" + imgname;
+	  img.src = "/${contextName}/images/" + imgname;
 	}
 	
 	/******************************************************
@@ -140,11 +132,11 @@ Released   : 20081103
 	   var img = document.getElementById(featureid+"_icon"); 
 	   if ( el.style.display != 'none' ) {
 	       el.style.display = 'none';
-	       img.src = "/SPLOT/images/plus.jpg";
+	       img.src = "/${contextName}/images/plus.jpg";
 	   }
 	   else {
 	       el.style.display = '';
-	       img.src = "/SPLOT/images/minus.jpg";
+	       img.src = "/${contextName}/images/minus.jpg";
 	   }   
 	}
 	
@@ -187,7 +179,7 @@ Released   : 20081103
 		}
 	
 	    var xhrArgs = {
-            url: "/SPLOT/SplotConfigurationServlet?action=interactive_configuration_updates&op=" + operation + parameters,
+            url: "/${contextName}/SplotConfigurationServlet?action=interactive_configuration_updates&op=" + operation + parameters,
             sync : false,
             handleAs: "xml",
             load: function(response, ioArgs) {
@@ -314,6 +306,10 @@ Released   : 20081103
 </head>
 <body class="nihilo">
 
+<#include "theme/${theme}/splot_header.ftl" />
+<#include "theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_config" );</script>
+
 <!-- dialog for conflict resolution -->
 <div dojoType="dijit.Dialog"
 	 style="display:none" 
@@ -322,9 +318,7 @@ Released   : 20081103
 	 execute="toggleFeature(arguments[0])">	 
 	 <div id="conflictingDecisionsDialogContent"></div>
 </div>
-
-<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
-
+ 
 <!--  Notification Dialog -->
 <div dojoType="dijit.Dialog"
 	 style="display:none" 
@@ -346,19 +340,6 @@ Released   : 20081103
 	 	</table>
 	</div>
 </div>
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index.html">Home</a></li> 
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li class="first"><a href="product_configuration.html">Product Configuration</a></li> 
-		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
 
 <div id="wrapper"> 
 <div class="btm"> 
@@ -396,12 +377,12 @@ Released   : 20081103
 							<!--	
 								<span>
 									<p><b>Legend</b>:
-									<br><img src="/SPLOT/images/checkmark.gif">select feature&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/crossmark.gif">deselect feature&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/toggle.gif">toggle feature&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/manual.gif">manual decision&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/propagated.gif">propagated decision&nbsp;&nbsp;&nbsp;
-									<br><img src="/SPLOT/images/auto-completion.gif">auto-completion decision&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/checkmark.gif">select feature&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/crossmark.gif">deselect feature&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/toggle.gif">toggle feature&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/manual.gif">manual decision&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/propagated.gif">propagated decision&nbsp;&nbsp;&nbsp;
+									<br><img src="/${contextName}/images/auto-completion.gif">auto-completion decision&nbsp;&nbsp;&nbsp;
 									</p>
 								</span>
 							-->
@@ -429,11 +410,11 @@ Released   : 20081103
 											<span style="display:<#if done>block<#else>none</#if>;" id="configuration-done-element">
 												<span class="standardHighlight1">Done!</span>
 												(Export configuration: 
-												<a target="_new" href="/SPLOT/SplotConfigurationServlet?action=export_configuration_csv">CSV file</a> |  
-												<a target="_new" href="/SPLOT/SplotConfigurationServlet?action=export_configuration_xml">XML</a>)
+												<a target="_new" href="/${contextName}/SplotConfigurationServlet?action=export_configuration_csv">CSV file</a> |  
+												<a target="_new" href="/${contextName}/SplotConfigurationServlet?action=export_configuration_xml">XML</a>)
 											</span>
 											<span style="display:<#if done>none<#else>block</#if>;" id="auto-completion-element">
-												<img title="Automatically completes configuration" src="/SPLOT/images/auto-completion.gif"/>
+												<img title="Automatically completes configuration" src="/${contextName}/images/auto-completion.gif"/>
 												Auto-completion: 
 												<a title="Attempts to DESELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','false')">Less Features</a> | 
 												<a title="Attempts to SELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','true')">More Features</a> 
@@ -454,21 +435,8 @@ Released   : 20081103
 </div> 
 </div> 
 
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009.</p> 
-</div> 
-<!-- end #footer --> 
+<#include "theme/${theme}/splot_footer.ftl" />	
+<#include "theme/${theme}/splot_ga.ftl" />
 	
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1626595-6");
-pageTracker._trackPageview();
-} catch(err) {}
-
-</script>
 </body>
 </html>

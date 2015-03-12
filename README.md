@@ -47,8 +47,8 @@ The project will run (by default) in http://localhost:8080/SPLOT
 
 In [Eclipse m2e][m2e], you can run the application using two launcher files: 
 
-* The `Run firewell.web.launch` runs the application. You can select that file and use the option "Run As > Run firewell.launch".  
-* The `Compile firewell.web.launch` recompile the application. If you modify the project source code, you must recompile the application to observe the changes in the running server.
+* The `Run splot.launch` runs the application. You can select that file and use the option "Run As > Run splot".  
+* The `Compile splot.launch` recompile the application. If you modify the project source code, you must recompile the application to observe the changes in the running server.
 
 In [Eclipse WTP][wtp], you can run the application using the Eclipse support for application servers. 
 
@@ -63,11 +63,12 @@ In [Eclipse WTP][wtp], you can run the application using the Eclipse support for
 ### Differences with the original
 
 * **Maven-based build**: In contrast to the original SPLOT application, this project is build using [Maven](http://maven.apache.org/). It includes a a pom.xml that tracks the project dependencies, allowing developers automatically include these dependencies in their project and manually detect conflicts with other libraries when they occur. In addition, it allows developers to create SPLOT extensions by using web overlays.
-
+* **Custom themes for the site:** This project supports multiple themes (look and feel) for the website. There is the traditional **default** theme and the **blank** theme. The theme can be selected in the ``WEB-INF/templates/config/config.ftl`` file.
+* **Custom name for the site:** In this project, the traditional context name SPLOT can be modified by any other. The context name must be configured in the ``WEB-INF/web.xml`` and the ``WEB-INF/templates/config/config.ftl`` files.
 
 ### Branches in Github
 
-There are many branches in the SPLAR Git:
+There are many branches in the SPLOT Git:
 
 * ``original``, is the original source code for version 1.0
 * ``maven-1.0``, is the maven-based source code for version 1.0

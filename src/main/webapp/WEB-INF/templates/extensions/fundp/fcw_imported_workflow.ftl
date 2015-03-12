@@ -1,3 +1,4 @@
+<#include "config/splot_config.ftl" />
 <#if hasError>
 	<p><span class="errorMessage">ERROR: ${errorMessage}.</span></p>
 	<p><a href="javascript:history.back()">Back</a></p>						
@@ -13,7 +14,7 @@
 	<!--
 function sortModels_imported(sortBy) 
 	{
-		ajax_loadContent('_model_repository_imported','/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=show_imported_workflow&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
+		ajax_loadContent('_model_repository_imported','/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=show_imported_workflow&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
 	} 
 	
 	
@@ -45,7 +46,7 @@ workflowName="";
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-		var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=parse_selected_workflow&workflow="+workflowName ;		
+		var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=parse_selected_workflow&workflow="+workflowName ;		
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange =onParseWorkflows;
 		oXMLRequest.send(null);

@@ -1,30 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<HTML>
-<HEAD>
-<meta http-equiv="refresh" content="20000; url=/SPLOT/start.html">
+<#include "config/splot_config.ftl" />
+
+<head>
+<meta http-equiv="refresh" content="20000; url=/${contextName}/start.html">
 
 <TITLE>Welcome to the Software Product Lines Online Tools Homepage</TITLE>
 
-<link type="text/css" rel="stylesheet" href="splot.css">
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css">
 
-</HEAD>
+</head>
 <body>
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"></div></div> 
-
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index.html">Home</a></li> 
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
+<#include "theme/${theme}/splot_header.ftl" />
+<#include "theme/${theme}/splot_menu.ftl" />
 
 
 <div id="wrapper"> 
@@ -51,20 +41,8 @@
 </div> 
 </div>
  
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009.</p> 
-</div> 
-<!-- end #footer --> 
+<#include "theme/${theme}/splot_footer.ftl" />	
+<#include "theme/${theme}/splot_ga.ftl" />
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1626595-6");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
-</BODY>
-</HTML>
+</body>
+</html>

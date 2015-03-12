@@ -1,38 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<#include "config/splot_config.ftl" />
+
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 </head>
 <body>
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index.html">Home</a></li> 
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li class="first"><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
+<#include "theme/${theme}/splot_header.ftl" />
+<#include "theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_repository" );</script>
 
 <div id="wrapper"> 
 <div class="btm"> 
@@ -48,7 +29,7 @@ Released   : 20081103
 					The data shown reflects the current state of the feature model repository and will change whenever a new entry is added
 					to the repository. We hope to continuously add new charts to this page as we refine the information we collect about the 
 					models in the repository. Please, feel free to save and use any of the chart images in this page. We kindly ask that you 
-					make a reference to SPLOT in this case. The official reference to SPLOT can be found in the <a href="/SPLOT/index.html">homepage</a>.
+					make a reference to SPLOT in this case. The official reference to SPLOT can be found in the <a href="/${contextName}/index.html">homepage</a>.
 				</p>
 				<hr/>			
 
@@ -59,7 +40,7 @@ Released   : 20081103
 				For instance, say a model has 10 features, 2 of which ara part of a single cross-tree constraint attached to the model (e.g. "<i>feature-1 implies feature-2</i>").
 				We say the CTCR for this model is 0.2 or (20%). The CTCR metric has proven useful in 
 				analyzing the complexity of feature model SAT instances. For details see article: 
-				<i><a target="_new" href="/SPLOT/articles/mendonca_sat_analysis_splc_2009.pdf">SAT-based Analysis of Feature Models is Easy</a>. 
+				<i><a target="_new" href="/${contextName}/articles/mendonca_sat_analysis_splc_2009.pdf">SAT-based Analysis of Feature Models is Easy</a>. 
 				In Proceedings of the 13th International Software Product Line Conference (SPLC'09). Aug 2009, San Francisco, CA, USA.</i>
 				</p>
 				
@@ -126,21 +107,9 @@ Released   : 20081103
 </div>
 </div>
 
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009.</p> 
-</div> 
-<!-- end #footer --> 
-	
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1626595-6");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
+<#include "theme/${theme}/splot_footer.ftl" />	
+<#include "theme/${theme}/splot_ga.ftl" />
+
 </body>
 </html>
 

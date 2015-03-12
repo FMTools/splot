@@ -1,38 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<#include "WEB-INF/templates/config/splot_config.ftl" />
+
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 </head>
 <body>
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li class="first"><a href="index.html">Home</a></li> 
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
+<#include "WEB-INF/templates/theme/${theme}/splot_header.ftl" />
+<#include "WEB-INF/templates/theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_index" );</script>
 	
 
 <div id="wrapper"> 
@@ -57,7 +38,7 @@ Released   : 20081103
 						<p>As a researcher or SPL enthusiastic you can download SPLOT's source code and use the available functionality to build or enhance 
 						your own SPL tool. Most importantly you can integrate your tool seamlessly with SPLOT and realize the benefits of having 
 						the large SPLOT's community using your tool and providing feedback.
-						As reported in <a href="/SPLOT/SplotAnalysesServlet?action=display_repository_statistics">our statistics page</a>, SPLOT has 
+						As reported in <a href="/${contextName}/SplotAnalysesServlet?action=display_repository_statistics">our statistics page</a>, SPLOT has 
 						been visited regularly by a large number of research groups worldwide since its launch in May,2009.
 						</p>
 					</div>
@@ -140,10 +121,8 @@ Released   : 20081103
 	</div> 
 </div> 
 
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
-</div> 
-<!-- end #footer --> 
+<#include "WEB-INF/templates/theme/${theme}/splot_footer.ftl" />	
+<#include "WEB-INF/templates/theme/${theme}/splot_ga.ftl" />
 	
 </body>
 </html>

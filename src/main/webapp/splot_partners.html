@@ -1,39 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<#include "WEB-INF/templates/config/splot_config.ftl" />
+
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 </head>
 <body>
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li class="first"><a href="index.html">Home</a></li> 
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="contact_us.html">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
-	
+<#include "WEB-INF/templates/theme/${theme}/splot_header.ftl" />
+<#include "WEB-INF/templates/theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_index" );</script>	
 
 <div id="wrapper"> 
 	<div class="btm"> 
@@ -57,7 +37,7 @@ Released   : 20081103
 						</p>
 					</div>  
 					 
-					 <h3>University of Namur-<a href="/SPLOT/extensions/fundp/fundp.html">Feature Configuration Workflows</a></h3> 
+					 <h3>University of Namur-<a href="/${contextName}/extensions/fundp/fundp.html">Feature Configuration Workflows</a></h3> 
 					<div class="entry"> 
 						<p>
 						Variability models, feature diagrams (FDs) ahead, are commonly used to document product line (PL) requirements. They are also often used during product derivation where they are fed to configuration tools which support semi-automated feature selection. Configuration tools facilitate this task by automatically propagating the decisions made and by ensuring their overall consistency. However, most feature-based configuration (FBC) tools assume that there exists a single monolithic FD and do not account for configuration processes that are distributed among various stakeholders who have specific concerns and who intervene at different moments. Our collaborations with industry have confirmed the need for techniques and tools that support such complex configuration processes and better chunking of the FD into coherent views. We recall the basics of multi-view FDs and feature configuration workflows before delving into the details of our extensions to SPLOT and YAWL.
@@ -77,10 +57,8 @@ Released   : 20081103
 	</div> 
 </div> 
 
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
-</div> 
-<!-- end #footer --> 
+<#include "WEB-INF/templates/theme/${theme}/splot_footer.ftl" />	
+<#include "WEB-INF/templates/theme/${theme}/splot_ga.ftl" />
 	
 </body>
 </html>

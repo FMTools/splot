@@ -1,108 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
   http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-  <display-name>SPLOT</display-name>
+	<display-name>SPLOT</display-name>
 
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 
-  <servlet>
-    <description></description>
-    <display-name>SplotCoreServlet</display-name>
-    <servlet-name>SplotCoreServlet</servlet-name>
-    <servlet-class>splot.core.servlets.SplotCoreServlet</servlet-class>
-    <init-param>
-      <param-name>logFilePath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SplotCoreServlet</servlet-name>
-    <url-pattern>/SplotCoreServlet</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-    <description></description>
-    <display-name>SplotAnalysesServlet</display-name>
-    <servlet-name>SplotAnalysesServlet</servlet-name>
-    <servlet-class>splot.services.servlets.SplotAnalysesServlet</servlet-class>
-    <init-param>
-      <param-name>modelsPath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
-    </init-param>
-    <init-param>
-      <param-name>logFilePath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent\splot.err</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SplotAnalysesServlet</servlet-name>
-    <url-pattern>/SplotAnalysesServlet</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-    <description></description>
-    <display-name>SplotConfigurationServlet</display-name>
-    <servlet-name>SplotConfigurationServlet</servlet-name>
-    <servlet-class>splot.services.servlets.SplotConfigurationServlet</servlet-class>
-    <init-param>
-      <param-name>modelsPath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
-    </init-param>
-    <init-param>
-      <param-name>logFilePath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent\splot.err</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SplotConfigurationServlet</servlet-name>
-    <url-pattern>/SplotConfigurationServlet</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-    <description></description>
-    <display-name>SplotEditorServlet</display-name>
-    <servlet-name>SplotEditorServlet</servlet-name>
-    <servlet-class>splot.services.servlets.SplotEditorServlet</servlet-class>
-    <init-param>
-      <param-name>modelsPath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
-    </init-param>
-    <init-param>
-      <param-name>logFilePath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent\splot.err</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SplotEditorServlet</servlet-name>
-    <url-pattern>/SplotEditorServlet</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <description></description>
-    <display-name>MultiplePerspectiveConfigurationViewsServlet</display-name>
-    <servlet-name>MultiplePerspectiveConfigurationViewsServlet</servlet-name>
-    <servlet-class>splot.services.extensions.fundp.servlets.MultiplePerspectiveConfigurationViewsServlet</servlet-class>
-    <init-param>
-      <param-name>modelsPath</param-name>
-      <param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MultiplePerspectiveConfigurationViewsServlet</servlet-name>
-    <url-pattern>/MultiplePerspectiveConfigurationViewsServlet</url-pattern>
-  </servlet-mapping>
-  
+	<servlet>
+		<description></description>
+		<display-name>SplotCoreServlet</display-name>
+		<servlet-name>SplotCoreServlet</servlet-name>
+		<servlet-class>splot.core.servlets.SplotCoreServlet</servlet-class>
+		<init-param>
+			<param-name>logFilePath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SplotCoreServlet</servlet-name>
+		<url-pattern>/SplotCoreServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<display-name>SplotAnalysesServlet</display-name>
+		<servlet-name>SplotAnalysesServlet</servlet-name>
+		<servlet-class>splot.services.servlets.SplotAnalysesServlet</servlet-class>
+		<init-param>
+			<param-name>modelsPath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>logFilePath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent\splot.err</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SplotAnalysesServlet</servlet-name>
+		<url-pattern>/SplotAnalysesServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<display-name>SplotConfigurationServlet</display-name>
+		<servlet-name>SplotConfigurationServlet</servlet-name>
+		<servlet-class>splot.services.servlets.SplotConfigurationServlet</servlet-class>
+		<init-param>
+			<param-name>modelsPath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>logFilePath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent\splot.err</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SplotConfigurationServlet</servlet-name>
+		<url-pattern>/SplotConfigurationServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<display-name>SplotEditorServlet</display-name>
+		<servlet-name>SplotEditorServlet</servlet-name>
+		<servlet-class>splot.services.servlets.SplotEditorServlet</servlet-class>
+		<init-param>
+			<param-name>modelsPath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>logFilePath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent\splot.err</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SplotEditorServlet</servlet-name>
+		<url-pattern>/SplotEditorServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>MultiplePerspectiveConfigurationViewsServlet</display-name>
+		<servlet-name>MultiplePerspectiveConfigurationViewsServlet</servlet-name>
+		<servlet-class>splot.services.extensions.fundp.servlets.MultiplePerspectiveConfigurationViewsServlet</servlet-class>
+		<init-param>
+			<param-name>modelsPath</param-name>
+			<param-value>C:\datos\workspaces\feature-ide\splot.web\WebContent/models/</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MultiplePerspectiveConfigurationViewsServlet</servlet-name>
+		<url-pattern>/MultiplePerspectiveConfigurationViewsServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- use templates for .html files -->
+	<servlet>
+		<servlet-name>freemarker</servlet-name>
+		<servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+		<!-- FreemarkerServlet settings: -->
+		<init-param>
+			<param-name>TemplatePath</param-name>
+			<param-value>/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>NoCache</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ContentType</param-name>
+			<param-value>text/html; charset=UTF-8</param-value> <!-- Forces UTF-8 output encoding! -->
+		</init-param>		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>freemarker</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
 </web-app>

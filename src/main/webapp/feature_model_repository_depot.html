@@ -1,21 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<#include "WEB-INF/templates/config/splot_config.ftl" />
+
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 <script src="js/AC_OETags.js"></script>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 <script type="text/javascript" src="js/ajax.js"></script> 
 <script type="text/javascript" src="js/ajax-dynamic-content.js"></script>
@@ -25,7 +17,7 @@ Released   : 20081103
  
 function openModelSelectionPage() 
 {
-	ajax_loadContent('model_list','/SPLOT/SplotAnalysesServlet?action=select_model&enableSelection=false&&showModelDetails=true');
+	ajax_loadContent('model_list','/${contextName}/SplotAnalysesServlet?action=select_model&enableSelection=false&&showModelDetails=true');
 	document.getElementById('FMRepository').style.display = 'none';
 } 
 -->
@@ -49,29 +41,9 @@ var requiredRevision = 124;
 </head>
 <body onload="openModelSelectionPage();">
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
-
-<!--
-<div id="header"> 
-	<div id="logo"> 
-		<h1><a href="/SPLOT/index.html">SPLOT</a></h1> 
-		<p> (<b>S</b>oftware <b>P</b>roduct <b>L</b>ine <b>O</b>nline <b>T</b>ools)<br>(experimental)</p> 
-	</div> 
-</div> 
--->
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index.html">Home</a></li> 
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li class="first"><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
+<#include "WEB-INF/templates/theme/${theme}/splot_header.ftl" />
+<#include "WEB-INF/templates/theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_repository" );</script> 
 	
 <div id="wrapper"> 
 <div class="btm">
@@ -196,21 +168,9 @@ var requiredRevision = 124;
 </div>
 </div>
 
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
-</div> 
-<!-- end #footer --> 
-	
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1626595-6");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
+<#include "WEB-INF/templates/theme/${theme}/splot_footer.ftl" />	
+<#include "WEB-INF/templates/theme/${theme}/splot_ga.ftl" />
+
 </body>
 </html>
 

@@ -1,9 +1,9 @@
-
+<#include "config/splot_config.ftl" />
 <#-- Generate Output: Step Index -->
 <#function genStepId id>
 	<#assign output = '#<span style=\'font-size: 14px; font-weight: bold;\'>' + id + '</span>'>
 	<#if id != '1'>
-		<#assign output = output + ' <img onMouseOver="this.src=\'/SPLOT/images/undoh.gif\'" onMouseOut="this.src=\'/SPLOT/images/undo.gif\'" onclick="javascript:updateConfigurationElements(\'undo\',\'step\',\'' + id + '\')" title="Undo all decisions and backtracks to previous step" src="/SPLOT/images/undo.gif">'>
+		<#assign output = output + ' <img onMouseOver="this.src=\'/${contextName}/images/undoh.gif\'" onMouseOut="this.src=\'/${contextName}/images/undo.gif\'" onclick="javascript:updateConfigurationElements(\'undo\',\'step\',\'' + id + '\')" title="Undo all decisions and backtracks to previous step" src="/${contextName}/images/undo.gif">'>
 	</#if>
 	<#return output?js_string?xml>
 </#function> 
@@ -14,12 +14,12 @@
 	<#list step.step_manualDecisions as decision>
 		<#if decision.featureId != "auto-completion">
 			<#if decision.featureValue == 1> 
-				<#assign output = output + '<img src="/SPLOT/images/checkmark.gif">'> 
+				<#assign output = output + '<img src="/${contextName}/images/checkmark.gif">'> 
 			<#else>	
-				<#assign output = output + '<img src="/SPLOT/images/crossmark.gif">'>
+				<#assign output = output + '<img src="/${contextName}/images/crossmark.gif">'>
 			</#if> 
 		<#else>
-		 	<#assign output = output + '<img src="/SPLOT/images/auto-completion.gif">'>
+		 	<#assign output = output + '<img src="/${contextName}/images/auto-completion.gif">'>
 		</#if> 
 		<#assign output = output + ' ' + decision.featureName>
 		<#if decision_has_next>

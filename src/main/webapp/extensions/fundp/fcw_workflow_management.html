@@ -1,3 +1,4 @@
+<#include "WEB-INF/templates/config/splot_config.ftl" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -14,17 +15,17 @@ Released   : 20081103
 <head>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="/SPLOT/splot.css"/>
+<link type="text/css" rel="stylesheet" href="/${contextName}/splot.css"/>
 
-<script type="text/javascript" src="/SPLOT/js/ajax.js"></script> 
-<script type="text/javascript" src="/SPLOT/js/ajax-dynamic-content.js"></script>
+<script type="text/javascript" src="/${contextName}/js/ajax.js"></script> 
+<script type="text/javascript" src="/${contextName}/js/ajax-dynamic-content.js"></script>
 
 <script type="text/javascript"> 
 <!--
  
 function openModelSelectionPage() 
 {
-	ajax_loadContent('model_list','/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=select_workflow&enableSelection=true&selectionMode=single&serviceURL=/SPLOT/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=POST&serviceAction=show_workflow_info&dirType=parsed');
+	ajax_loadContent('model_list','/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=select_workflow&enableSelection=true&selectionMode=single&serviceURL=/${contextName}/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=POST&serviceAction=show_workflow_info&dirType=parsed');
 	
 } 
 
@@ -33,7 +34,7 @@ function openModelSelectionPage()
 
 function openImportedWorkflowsPage() 
 {
-	ajax_loadContent('model_list_imported','/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=show_imported_workflow&operation=show&enableSelection=true&selectionMode=single&serviceURL=/SPLOT/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=POST&serviceAction=show_workflow_info&dirType=imported');
+	ajax_loadContent('model_list_imported','/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=show_imported_workflow&operation=show&enableSelection=true&selectionMode=single&serviceURL=/${contextName}/MultiplePerspectiveConfigurationViewsServlet&serviceHTTPMethod=POST&serviceAction=show_workflow_info&dirType=imported');
 	
 }
 
@@ -59,7 +60,7 @@ function UploadFileToRepository(form, file) {
 			}
 		if (allowSubmit) {
 			form.method="post";
-			form.action="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=import_workflow_specification&fileName="+file;
+			form.action="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=import_workflow_specification&fileName="+file;
 			form.enctype="multipart/form-data";
 			
 			
@@ -112,7 +113,7 @@ function UploadImageFileToRepository(form, file) {
 		try{
 			
 			form.method="post";
-			form.action="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_workflow_image&fileName="+selectedFileName+"&fileExtention="+ext;
+			form.action="/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=save_workflow_image&fileName="+selectedFileName+"&fileExtention="+ext;
 			form.enctype="multipart/form-data";
 			form.submit();
 		}catch(error){
@@ -133,16 +134,16 @@ function UploadImageFileToRepository(form, file) {
 </head>
 <body class="nihilo" onload="pageOnLoadActions();return false;">
 
-<div id="header"><div id="logo"><img src="/SPLOT/images/splot.jpg"/></div></div> 
+<div id="header"><div id="logo"><img src="/${contextName}/images/splot.jpg"/></div></div> 
 
 <!-- end #header --> 
 <div id="menu"> 
 	<ul> 
-		<li><a href="/SPLOT/index.html">Home</a></li> 
-		<li class="first"><a href="/SPLOT/feature_model_edition.html">Feature Model Editor</a></li> 
-		<li><a href="/SPLOT/automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="/SPLOT/product_configuration.html">Product Configuration</a></li> 
-		<li><a href="/SPLOT/feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="/${contextName}/index.html">Home</a></li> 
+		<li class="first"><a href="/${contextName}/feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="/${contextName}/automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="/${contextName}/product_configuration.html">Product Configuration</a></li> 
+		<li><a href="/${contextName}/feature_model_repository.html">Feature Model Repository</a></li> 
 		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
 	</ul> 
 </div> 
@@ -207,7 +208,7 @@ function UploadImageFileToRepository(form, file) {
 																		Upload workflow image file:
 																	</b>
 																</p>
-																	<img src="/SPLOT/images/important_icon.jpg"/> The upload of an image will replace the image already uploaded.
+																	<img src="/${contextName}/images/important_icon.jpg"/> The upload of an image will replace the image already uploaded.
 																<p>
 																	<input type="file" name="uploadimagefile" size="40"/>(.png)
 																</p>

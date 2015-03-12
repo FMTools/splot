@@ -1,22 +1,13 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Compromise
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20081103
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<#include "config/splot_config.ftl" />
+
 <head>
-<meta http-equiv="refresh" content="20000; url=/SPLOT/start.html"/>
+<meta http-equiv="refresh" content="20000; url=/${contextName}/start.html"/>
 <title>Welcome to the Software Product Lines Online Tools Homepage</title>
 
-<link type="text/css" rel="stylesheet" href="splot.css"/>
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css"/>
 
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.3/dijit/themes/nihilo/nihilo.css"/>
 
@@ -45,7 +36,7 @@ function updateModelData(action, modelIndex) {
         //The parameters to pass to xhrPost, the message, and the url to send it to
         //Also, how to handle the return and callbacks.
         var xhrArgs = {
-            url: "/SPLOT/SplotAnalysesServlet?action=" + action + "&modelIndex=" + modelIndex,
+            url: "/${contextName}/SplotAnalysesServlet?action=" + action + "&modelIndex=" + modelIndex,
             sync : true,
             handleAs: "xml",
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=utf-8" },
@@ -83,7 +74,7 @@ function updateModelData(action, modelIndex) {
 
 function renderFeatureModel(modelIndex,highlight) 
 {
-	window.open("/SPLOT/SplotAnalysesServlet?action=render_model&modelIndex="+modelIndex+"&highlight="+highlight, "model_"+modelIndex, "width=400,height=400,scrollbars=yes,toolbar=no,location=no,menubar=no" );
+	window.open("/${contextName}/SplotAnalysesServlet?action=render_model&modelIndex="+modelIndex+"&highlight="+highlight, "model_"+modelIndex, "width=400,height=400,scrollbars=yes,toolbar=no,location=no,menubar=no" );
 } 
 -->
 </script>
@@ -91,22 +82,9 @@ function renderFeatureModel(modelIndex,highlight)
 </head>
 <body onload="javascript:updateData('run_statistics');">
 
-<div id="header"><div id="logo"><img src="images/splot.jpg"></div></div> 
-
-
-<!-- end #header --> 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index.html">Home</a></li>  
-		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
-		<li class="first"><a href="automated_analyses.html">Automated Analysis</a></li> 
-		<li><a href="product_configuration.html">Product Configuration</a></li> 
-		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
-	</ul> 
-</div> 
-<!-- end #menu --> 
-
+<#include "theme/${theme}/splot_header.ftl" />
+<#include "theme/${theme}/splot_menu.ftl" />
+<script>select_menu( "menu_analysis" );</script>
 
 <div id="wrapper"> 
 <div class="btm"> 
@@ -288,20 +266,9 @@ function renderFeatureModel(modelIndex,highlight)
 </div> 
 </div>
  
-<div id="footer"> 
-	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009.</p> 
-</div> 
-<!-- end #footer --> 
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1626595-6");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
+<#include "theme/${theme}/splot_footer.ftl" />	
+<#include "theme/${theme}/splot_ga.ftl" />
+
 </body>
 </html>

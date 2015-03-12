@@ -1,7 +1,8 @@
+<#include "config/splot_config.ftl" />
 
 <HTML>
 <HEAD>
-<meta http-equiv="refresh" content="20000; url=/SPLOT/start.html">
+<meta http-equiv="refresh" content="20000; url=/${contextName}/start.html">
 
 <TITLE>Welcome to the Software Product Lines Online Tools Homepage</TITLE>
 

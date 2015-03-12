@@ -1,3 +1,4 @@
+<#include "config/splot_config.ftl" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -148,7 +149,7 @@ Released   : 20081103
 								}else{
 									oXMLRequest = new XMLHttpRequest();
 								}
-								var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+selectedType ;
+								var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+selectedType ;
 								oXMLRequest.open("GET",strValidationServiceUrl,true);
 								oXMLRequest.onreadystatechange = updateWorkflowAndFeatureModelDetails;
 								oXMLRequest.send(null);
@@ -327,7 +328,7 @@ Released   : 20081103
 					}else{
 						oXMLRequest = new XMLHttpRequest();
 					}
-					var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+val ;
+					var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+val ;
 					oXMLRequest.open("GET",strValidationServiceUrl,true);
 					oXMLRequest.onreadystatechange = updateWorkflowDetails;
 					oXMLRequest.send(null);
@@ -422,7 +423,7 @@ Released   : 20081103
 					}else{
 						oXMLRequest = new XMLHttpRequest();
 					}
-					var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+val ;
+					var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+val ;
 					oXMLRequest.open("GET",strValidationServiceUrl,true);
 					oXMLRequest.onreadystatechange = updateFeatureModelDetails;
 					oXMLRequest.send(null);
@@ -524,7 +525,7 @@ Released   : 20081103
 			}else{
 				oXMLRequest = new XMLHttpRequest();
 			}
-			var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=create_dependency_set&featureModel=" +featureValue+"&workflow="+WorkflowValue;
+			var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=create_dependency_set&featureModel=" +featureValue+"&workflow="+WorkflowValue;
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange =setDependencySetResult;
 			oXMLRequest.send(null);
@@ -595,7 +596,7 @@ Released   : 20081103
 			}else{
 				oXMLRequest = new XMLHttpRequest();
 			}
-			var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=load_view_allocation_information&featureModel=" +featureValue+"&workflow="+WorkflowValue;
+			var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=load_view_allocation_information&featureModel=" +featureValue+"&workflow="+WorkflowValue;
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange =listViewAllocationInfo;
 			oXMLRequest.send(null);
@@ -811,7 +812,7 @@ Released   : 20081103
 							oXMLRequest = new XMLHttpRequest();
 						}
 		
-						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_allocation&featureModel=" +deletedFeatureName+"&workflow="+deletedWorkflowName+"&taskName="+deletedTaskStop+"&viewName="+deletedViewName;		
+						var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_allocation&featureModel=" +deletedFeatureName+"&workflow="+deletedWorkflowName+"&taskName="+deletedTaskStop+"&viewName="+deletedViewName;		
 						oXMLRequest.open("GET",strValidationServiceUrl,true);
 						oXMLRequest.onreadystatechange =updateTableAfterDelete;
 						oXMLRequest.send(null);
@@ -1009,7 +1010,7 @@ Released   : 20081103
 							oXMLRequest = new XMLHttpRequest();
 						}
 		
-						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_view_allocation&featureModel=" +featureValue+"&workflow="+workflowValue+"&taskName="+stopTaskValue+"&viewName="+viewValue;		
+						var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=save_view_allocation&featureModel=" +featureValue+"&workflow="+workflowValue+"&taskName="+stopTaskValue+"&viewName="+viewValue;		
 						oXMLRequest.open("GET",strValidationServiceUrl,true);
 						oXMLRequest.onreadystatechange =saveViewAllocationToRepositoryResult;
 						oXMLRequest.send(null);
@@ -1066,7 +1067,7 @@ Released   : 20081103
 		}
 	    
 	    try{ 
-		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+featureValue+"&type=allocated";
+		    var strValidationServiceUrl = "/${contextName}/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+featureValue+"&type=allocated";
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange = onCheckViewsCoverageResult;
 			oXMLRequest.send(null);

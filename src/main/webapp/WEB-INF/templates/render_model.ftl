@@ -1,11 +1,17 @@
-<HTML>
-<HEAD>
-<TITLE>Welcome to the Software Product Lines Online Tools Homepage</TITLE>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<link type="text/css" rel="stylesheet" href="splot.css">
+<#include "config/splot_config.ftl" />
 
-</HEAD>
-<BODY>
+<html>
+<head>
+<title>Welcome to the Software Product Lines Online Tools Homepage</TITLE>
+
+<link type="text/css" rel="stylesheet" href="css/${theme}/splot.css">
+
+</head>
+<body>
+
 <div id="wrapper"> 
 <div class="btm"> 
 	<div id="page"> 
@@ -43,5 +49,5 @@
 </div> 
 </div> 
 
-</BODY>
-</HTML>
+</body>
+</html>
